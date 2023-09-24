@@ -11,3 +11,9 @@ Multiple screenshots of the working of the app with the differents edges cases.
 ## Others informations
 
 Any information that seems you important to add.
+
+<!-- Mandatory -->
+
+## Close
+
+What issue(s) you're closing. You have to write `close #issueNumber`
