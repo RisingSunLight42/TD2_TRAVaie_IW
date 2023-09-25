@@ -1,13 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Instant Weather</title>
-        <link rel="stylesheet" href="./css/style.css" />
-    </head>
-    <body>
-        <div>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Instant Weather</title>
+    <link rel="stylesheet" href="./css/style.css" />
+</head>
+
+<body>
+    <header>
+        <h1>Instant Weather</h1>
+    </header>
+    <main>
+        <nav>
             <form>
                 <label for="fPostalCode">Postal Code :</label>
                 <input type="text" id="fPostalCode" name="fCodePostal">
@@ -17,8 +22,21 @@
                 </select>
                 <input type="submit" name="submit">
 
-            </form>       
+            </form>
+        </nav>
+        <div>
+            <h2>Weather card</h2>
+            <div>Info 1</div>
+            <div>Info 2</div>
+            <div>Info 3</div>
+            <div>Info 4</div>
         </div>
-        <script src="./js/app.js"></script>
-    </body>
+    </main>
+    <footer>
+        <a href="https://github.com/RisingSunLight42/TD2_TRAVaie_IW"><img src="./image/imgGithub.png" alt="Github"></a>
+        <p>TRAVaie</p>
+    </footer>
+    <script src="./js/app.js"></script>
+</body>
+
 </html>
