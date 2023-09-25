@@ -1,11 +1,6 @@
-const FORM_POSTAL_CODE = document.getElementById("fPostalCode");
-const FORM_TOWN = document.getElementById("fTown");
-const FORM_BUTTON = document.getElementById("fButton");
+const FORM_BUTTON = document.getElementById("formButton");
 const COMMUNITY_CODE_INPUT = document.getElementById("communityCode");
 const SELECT_COMMUNITY = document.getElementById("selectCommunity");
-
-formButton.addEventListener('click', () => {
-})
 
 const isCommunityCodeValid = () => {
     const COMMUNITY_CODE = COMMUNITY_CODE_INPUT.value;
@@ -31,6 +26,10 @@ const getCommunityList = (communityCode) => {
 
 const displayCommunity = (communityList) => {
     while (SELECT_COMMUNITY.length != 0) SELECT_COMMUNITY.remove(0);
+    const DEFAULT_OPTION = document.createElement("option");
+    DEFAULT_OPTION.text = "--Please choose your town--";
+    DEFAULT_OPTION.value = "";
+    SELECT_COMMUNITY.add(DEFAULT_OPTION);
     for (const community of communityList) {
         const OPTION = document.createElement("option");
         OPTION.text = community[0];
@@ -39,3 +38,6 @@ const displayCommunity = (communityList) => {
     }
 };
 
+COMMUNITY_CODE_INPUT.addEventListener("input", () => isCommunityCodeValid());
+
+FORM_BUTTON.addEventListener("click", () => {});
