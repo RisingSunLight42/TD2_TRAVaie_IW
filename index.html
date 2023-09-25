@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -14,9 +13,16 @@
     </header>
     <main>
         <nav>
-            <p>Code postal</p>
-            <p>Nom de la ville</p>
-            <!--Include the from here-->
+            <form>
+                <label for="fPostalCode">Postal Code :</label>
+                <input type="text" id="fPostalCode" name="fCodePostal">
+                <label for="fTown">Town :</label>
+                <select type="select" id="fTown">
+                <option value="">--Please choose your town--</option>
+                </select>
+                <input type="submit" name="submit">
+
+            </form>
         </nav>
         <div>
             <h2>Weather card</h2>
