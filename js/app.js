@@ -1,7 +1,8 @@
-const FORM_POSTAL_CODE = document.getElementById("fPostalCode").value;
-const FORM_TOWN = document.getElementById("fTown").value;
+const FORM_POSTAL_CODE = document.getElementById("fPostalCode");
+const FORM_TOWN = document.getElementById("fTown");
 let formButton = document.getElementById("fButton");
 
 formButton.addEventListener('click', () => {
-    document.forms.formWeather.submit()
+    document.forms.formWeather.submit();
 })
+
