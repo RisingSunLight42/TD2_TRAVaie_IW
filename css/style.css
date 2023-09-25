@@ -1,28 +1,76 @@
+:root {
+    --cloudy-color: rgb(8, 101, 138);
+    --background-color: rgba(55, 53, 56, 0.33);
+}
+
 * {
     margin: 0;
     padding: 0;
+    font-family: 'Raleway', sans-serif;
+   
 }
 
+.cloudy {
+    background-image: url("../image/cloudy.webp");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: bottom;
+}
 
+.sunny {
+    background-image: url("../image/sunny.webp");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: bottom;
+}
+
+.stormy {
+    background-image: url("../image/stormy.webp");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: bottom;
+}
+
+.rainy {
+    background-image: url("../image/rainy.webp");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: bottom;
+}
+
+.snowy {
+    background-image: url("../image/snowy.webp");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: bottom;
+}
 
 html, body{
     height: 100%;
 }
 
 h1{
-    border-bottom: solid 3px black;
     height: 100%;
+    font-size: 4em;
 }
 
 header {
-    height: 5vh;
+    border-bottom: solid 3px black;
+    height: 8vh;
     text-align: center;
+    background-color: var(--background-color);
+    
 }
 
 
 main {
     display: flex;
-    height: 90vh;
+    height: 84vh;
 }
 
 nav {
@@ -30,13 +78,27 @@ nav {
     border-right: 2px solid black;
     height: 100%;
     width: 15%;
+    
+    background-color: rgba(53, 56, 55, 0.33);
+}
+
+input, select{
+    margin-bottom: 12%;
+    width: 80%;
+    border: solid 1px black;
 }
 
 form {
     display: flex;
     flex-direction: column;
+    height: 15%;
+    width: 100%;
     align-items: center;
-    margin-top: 10%;
+    margin-top: 18%;
+    padding-top: 18%;
+    justify-content: space-around;
+    background-color: transparent;
+    
 }
 
 .weatherCard {
@@ -45,18 +107,21 @@ form {
     margin: auto;
     border: solid 2px black;
     border-radius: 20px;
+    background-color: rgba(53, 56, 55, 0.33);
+    backdrop-filter: blur(10px);
 }
 
 h2{
-    font-size: 3em;
+    font-size: 2.5em;
     text-align: center;
+    height: 7%;
     margin: 2%;
 }
 
-#result{
+.result{
     font-size: 1.5em;
     text-align: center;
-    padding: 2.7vw;
+    height: 18%;
     margin: 1vw;
     border: solid 2px black;
     border-radius: 15px;
@@ -65,14 +130,19 @@ h2{
 footer{
     display: flex;
     position: fixed;
+    justify-content: space-around;
     bottom: 0;
-    height: 5vh;
+    height: 8vh;
     width: 100%;
     border-top: solid 2px black;
+    background-color: var(--background-color);
 }
 
-
 #image{
-    width: 25%;
-    height: 25%;
+    margin-top: 10%;
+    height: 80%;
+}
+#crew{
+    font-size: 2em;
+    margin: auto;
 }
