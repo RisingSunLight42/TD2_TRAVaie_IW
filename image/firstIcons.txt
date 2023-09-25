@@ -1,0 +1,19 @@
+This document contains the the html line of FONTAWESOME to obtain the icon.
+
+Sun : <i class="fa-regular fa-sun"></i>
+
+Cloud : <i class="fa-solid fa-cloud"></i>
+
+Cloud-bolt : <i class="fa-solid fa-cloud-bolt"></i>
+
+Snow : <i class="fa-regular fa-snowflake"></i>
+
+Smog : <i class="fa-solid fa-smog"></i>
+
+Cloud+ Sun : <i class="fa-solid fa-cloud-sun"></i>
+
+Cloud + Rain : <i class="fa-solid fa-cloud-sun-rain"></i>
+
+Temperature max : <i class="fa-solid fa-temperature-arrow-up"></i>
+
+Temperature min : <i class="fa-solid fa-temperature-arrow-down"></i>
