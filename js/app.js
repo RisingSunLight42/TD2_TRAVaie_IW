@@ -3,6 +3,5 @@ const FORM_TOWN = document.getElementById("fTown");
 let formButton = document.getElementById("fButton");
 
 formButton.addEventListener('click', () => {
-    document.forms.formWeather.submit();
 })
 
