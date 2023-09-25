@@ -6,21 +6,47 @@
         <title>Instant Weather</title>
         <link rel="stylesheet" href="./css/style.css" />
     </head>
+
     <body>
-        <div id="nameCity">
-
-        </div>
-        <div id="minTemperature">
-
-        </div>
-        <div id="maxTemperature">
-            
-        </div>
-        <div id="rainProbability">
-
-        </div>
-        <div id="sunHours"></div>
-
+        <header>
+            <h1>Instant Weather</h1>
+        </header>
+        <main>
+            <nav>
+                <form name="formWeather">
+                    <label for="communityCode">Postal Code :</label>
+                    <input
+                        type="text"
+                        id="communityCode"
+                        name="formCodePostal"
+                    />
+                    <label for="formTown">Town :</label>
+                    <select type="select" id="selectCommunity">
+                        <option value="">--Please choose your town--</option>
+                    </select>
+                    <input
+                        type="button"
+                        id="formButton"
+                        name="fButton"
+                        value="Submit"
+                    />
+                </form>
+            </nav>
+            <div>
+                <h2>Weather card</h2>
+                <div id="nameCity"></div>
+                <div id="minTemperature"></div>
+                <div id="maxTemperature"></div>
+                <div id="rainProbability"></div>
+                <div id="sunHours"></div>
+            </div>
+        </main>
+        <footer>
+            <a href="https://github.com/RisingSunLight42/TD2_TRAVaie_IW"
+                ><img src="./image/imgGithub.png" alt="Github"
+            /></a>
+            <p>TRAVaie</p>
+        </footer>
         <script src="./js/app.js"></script>
     </body>
 </html>
