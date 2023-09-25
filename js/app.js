@@ -1,5 +1,11 @@
+const FORM_POSTAL_CODE = document.getElementById("fPostalCode");
+const FORM_TOWN = document.getElementById("fTown");
+const FORM_BUTTON = document.getElementById("fButton");
 const COMMUNITY_CODE_INPUT = document.getElementById("communityCode");
 const SELECT_COMMUNITY = document.getElementById("selectCommunity");
+
+formButton.addEventListener('click', () => {
+})
 
 const isCommunityCodeValid = () => {
     const COMMUNITY_CODE = COMMUNITY_CODE_INPUT.value;
@@ -32,3 +38,4 @@ const displayCommunity = (communityList) => {
         SELECT_COMMUNITY.add(OPTION);
     }
 };
+
