@@ -10,7 +10,7 @@ html, body{
 }
 
 h1{
-    border-bottom: solid 2px black;
+    border-bottom: solid 3px black;
     height: 100%;
 }
 
@@ -35,6 +35,8 @@ nav {
 form {
     display: flex;
     flex-direction: column;
+    align-items: center;
+    margin-top: 10%;
 }
 
 .weatherCard {
@@ -42,6 +44,22 @@ form {
     width: 80%;
     margin: auto;
     border: solid 2px black;
+    border-radius: 20px;
+}
+
+h2{
+    font-size: 3em;
+    text-align: center;
+    margin: 2%;
+}
+
+#result{
+    font-size: 1.5em;
+    text-align: center;
+    padding: 2.7vw;
+    margin: 1vw;
+    border: solid 2px black;
+    border-radius: 15px;
 }
 
 footer{
