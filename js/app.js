@@ -1,28 +1,27 @@
-const nameCity = document.getElementById("nameCity");
-const minTemperature = document.getElementById("minTemperature");
-const maxTemperature = document.getElementById("maxTemperature");
-const rainProbability = document.getElementById("rainProbability");
-const sunHours = document.getElementById("sunHours");
-
-function getMeteo(communityCode) {
-    const METEO_CONCEPT_API_URL =
-        `https://api.meteo-concept.com/api/forecast/daily/0?token=ba636252d01c0123b3498700ea2041a004c84fcf855e0695651e83c954dd33f7&insee=${communityCode}`;
-
-    fetch(METEO_CONCEPT_API_URL)
-        .then(response => response.json()).then(data => displayMeteoInfo(data));
-}
-
-function displayMeteoInfo(data) {
-    nameCity.textContent = data.city.name;
-    minTemperature.textContent = data.forecast.tmin + "°C";
-    maxTemperature.textContent = data.forecast.tmax + "°C";
-    rainProbability.textContent = data.forecast.probarain + "%";
-    sunHours.textContent = data.forecast.sun_hours;
-}
-
+const CITY_NAME = document.getElementById("nameCity");
+const MINIMAL_TEMPERATURE = document.getElementById("minTemperature");
+const MAXIMAL_TEMPERATURE = document.getElementById("maxTemperature");
+const RAIN_PROBABILITY = document.getElementById("rainProbability");
+const SUN_HOURS = document.getElementById("sunHours");
 const FORM_BUTTON = document.getElementById("formButton");
 const COMMUNITY_CODE_INPUT = document.getElementById("communityCode");
 const SELECT_COMMUNITY = document.getElementById("selectCommunity");
+
+function getMeteo(communityCode) {
+    const METEO_CONCEPT_API_URL = `https://api.meteo-concept.com/api/forecast/daily/0?token=ba636252d01c0123b3498700ea2041a004c84fcf855e0695651e83c954dd33f7&insee=${communityCode}`;
+
+    fetch(METEO_CONCEPT_API_URL)
+        .then((response) => response.json())
+        .then((data) => displayMeteoInfo(data));
+}
+
+function displayMeteoInfo(data) {
+    CITY_NAME.textContent = data.city.name;
+    MINIMAL_TEMPERATURE.textContent = data.forecast.tmin + "°C";
+    MAXIMAL_TEMPERATURE.textContent = data.forecast.tmax + "°C";
+    RAIN_PROBABILITY.textContent = data.forecast.probarain + "%";
+    SUN_HOURS.textContent = data.forecast.sun_hours;
+}
 
 const isCommunityCodeValid = () => {
     const COMMUNITY_CODE = COMMUNITY_CODE_INPUT.value;
@@ -62,4 +61,6 @@ const displayCommunity = (communityList) => {
 
 COMMUNITY_CODE_INPUT.addEventListener("input", () => isCommunityCodeValid());
 
-FORM_BUTTON.addEventListener("click", () => {});
+FORM_BUTTON.addEventListener("click", () => {
+    if (SELECT_COMMUNITY.value != "") getMeteo(SELECT_COMMUNITY.value);
+});
