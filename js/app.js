@@ -1,4 +1,5 @@
 const COMMUNITY_CODE_INPUT = document.getElementById("communityCode");
+const SELECT_COMMUNITY = document.getElementById("selectCommunity");
 
 const isCommunityCodeValid = () => {
     const COMMUNITY_CODE = COMMUNITY_CODE_INPUT.value;
@@ -22,4 +23,12 @@ const getCommunityList = (communityCode) => {
     }
 };
 
-const displayCommunity = () => {};
+const displayCommunity = (communityList) => {
+    while (SELECT_COMMUNITY.length != 0) SELECT_COMMUNITY.remove(0);
+    for (const community of communityList) {
+        const OPTION = document.createElement("option");
+        OPTION.text = community[0];
+        OPTION.value = community[1];
+        SELECT_COMMUNITY.add(OPTION);
+    }
+};
