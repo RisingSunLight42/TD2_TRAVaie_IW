@@ -1,9 +1,10 @@
 ---
 name: Bug report
 about: Creation of a bug report
-title: [BUG]:
+title: "[BUG]"
 labels: bug
-assignees: RisingSunLight42
+assignees: ''
+
 ---
 
 ## Describe it
