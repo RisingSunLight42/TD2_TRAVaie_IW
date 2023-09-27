@@ -1,18 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Instant Weather</title>
-        <link rel="stylesheet" href="./css/style.css" />
-    </head>
+<html lang="en" >
 
-    <body>
-        <header>
-            <h1>Instant Weather</h1>
-        </header>
-        <main>
-            <nav>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Instant Weather</title>
+    <link rel="stylesheet" href="./css/style.css" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com%22%3E"/>
+<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <h1>Instant Weather</h1>
+    </header>
+    <main>
+        <nav>
                 <form name="formWeather">
                     <label for="communityCode">Postal Code :</label>
                     <input
@@ -32,21 +37,19 @@
                     />
                 </form>
             </nav>
-            <div>
+        <div>
                 <h2>Weather card</h2>
-                <div id="nameCity"></div>
-                <div id="minTemperature"></div>
-                <div id="maxTemperature"></div>
-                <div id="rainProbability"></div>
-                <div id="sunHours"></div>
+                <div class="result" id="nameCity"></div>
+                <div class="result" id="minTemperature"></div>
+                <div class="result" id="maxTemperature"></div>
+                <div class="result" id="rainProbability"></div>
+                <div class="result" id="sunHours"></div>
             </div>
-        </main>
-        <footer>
-            <a href="https://github.com/RisingSunLight42/TD2_TRAVaie_IW"
-                ><img src="./image/imgGithub.png" alt="Github"
-            /></a>
-            <p>TRAVaie</p>
-        </footer>
-        <script src="./js/app.js"></script>
-    </body>
+    </main>
+    <footer>
+        <a href="https://github.com/RisingSunLight42/TD2_TRAVaie_IW"><img src="./image/imgGithub.png" alt="Github" id="image"></a>
+        <div id="crew">©TRAVaïe - Tous droits réservés</div>
+    </footer>
+    <script src="./js/app.js"></script>
+</body>
 </html>
