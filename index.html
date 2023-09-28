@@ -12,24 +12,47 @@
             href="https://fonts.googleapis.com/css2?family=Raleway&display=swap"
             rel="stylesheet"
         />
+        <!-- Font Awesome -->
+        <script
+            src="https://kit.fontawesome.com/908c130cac.js"
+            crossorigin="anonymous"
+        ></script>
     </head>
     <body id="background">
+        <div id="pop-up-error" class="pop-up left-border-orange">
+            <em class="fa-solid fa-triangle-exclamation fa-2x"></em>
+            <div>
+                <h1>Warning</h1>
+                <p>
+                    The community code entered doesn't exist. Check is you
+                    haven't made a typo.
+                </p>
+            </div>
+        </div>
         <header>
-            <h1>Instant Weather</h1>
+            <h1 class="big-title">Instant Weather</h1>
         </header>
         <main>
             <nav>
                 <form name="formWeather">
-                    <label for="communityCode">Postal Code :</label>
-                    <input
-                        type="text"
-                        id="communityCode"
-                        name="formCodePostal"
-                    />
-                    <label for="formTown">Town :</label>
-                    <select type="select" id="selectCommunity">
-                        <option value="">--Please choose your town--</option>
-                    </select>
+                    <div>
+                        <label for="communityCode">Postal Code :</label>
+                        <input
+                            type="text"
+                            id="communityCode"
+                            name="formCodePostal"
+                        />
+                    </div>
+                    <div>
+                        <label id="labelSelectCommunity" for="formTown"
+                            >Town :</label
+                        >
+                        <select type="select" id="selectCommunity">
+                            <option value="">
+                                --Please choose your town--
+                            </option>
+                        </select>
+                    </div>
                     <input
                         type="button"
                         id="formButton"
