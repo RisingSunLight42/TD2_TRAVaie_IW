@@ -68,7 +68,7 @@ select {
     border: solid 1px black;
 }
 
-input:hover {
+#formButton:hover {
     cursor: pointer;
 }
 
