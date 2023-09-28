@@ -108,10 +108,15 @@ function getMeteo(communityCode) {
 
 function displayMeteoInfo(data) {
     CITY_NAME.textContent = "Weather card of " + data.city.name;
-    MINIMAL_TEMPERATURE.textContent = data.forecast.tmin + "°C";
-    MAXIMAL_TEMPERATURE.textContent = data.forecast.tmax + "°C";
-    RAIN_PROBABILITY.textContent = data.forecast.probarain + "%";
-    SUN_HOURS.textContent = data.forecast.sun_hours;
+    MINIMAL_TEMPERATURE.textContent =
+        "Température minimale : " + data.forecast.tmin + "°C";
+    MAXIMAL_TEMPERATURE.textContent =
+        "Température maximale : " + data.forecast.tmax + "°C";
+    RAIN_PROBABILITY.textContent =
+        "Probabilité de précipitations : " + data.forecast.probarain + "%";
+    SUN_HOURS.textContent =
+        `Heure${data.forecast.sun_hours > 1 ? "s" : ""} d'ensoleillement : ` +
+        data.forecast.sun_hours;
     BACKGROUND.style.backgroundImage = `url(${
         WEATHER_CODES[data.forecast.weather]
     })`;
