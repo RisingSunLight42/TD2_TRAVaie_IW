@@ -8,6 +8,7 @@ const COMMUNITY_CODE_INPUT = document.getElementById("communityCode");
 const LABEL_SELECT_COMMUNITY = document.getElementById("labelSelectCommunity");
 const SELECT_COMMUNITY = document.getElementById("selectCommunity");
 const BACKGROUND = document.getElementById("background");
+const POP_UP_ERROR = document.getElementById("pop-up-error");
 const WEATHER_CODES = {
     0: "./image/snowy.webp",
     1: "./image/cloudy.webp",
@@ -123,6 +124,17 @@ function displayMeteoInfo(data) {
     })`;
 }
 
+/**
+ * Function to perform an animation on the display
+ */
+const triggerAnimation = (element, animation) => {
+    // The first three lines are present to reset the animation state and reperform it
+    element.style.animation = "none";
+    element.offsetHeight;
+    element.style.animation = null;
+    element.style.animation = animation;
+};
+
 const handleUserInputEnability = (isEnabled) => {
     if (isEnabled) {
         LABEL_SELECT_COMMUNITY.style.display = "";
@@ -163,7 +175,10 @@ const displayCommunity = (communityList) => {
     DEFAULT_OPTION.text = "--Please choose your town--";
     DEFAULT_OPTION.value = "";
     SELECT_COMMUNITY.add(DEFAULT_OPTION);
-    if (communityList.length === 0) return handleUserInputEnability(false);
+    if (communityList.length === 0) {
+        triggerAnimation(POP_UP_ERROR, "popupAlert 5s ease");
+        return handleUserInputEnability(false);
+    }
     for (const community of communityList) {
         const OPTION = document.createElement("option");
         OPTION.text = community[0];
