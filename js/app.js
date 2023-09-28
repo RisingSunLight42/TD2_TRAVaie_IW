@@ -16,7 +16,7 @@ function getMeteo(communityCode) {
 }
 
 function displayMeteoInfo(data) {
-    CITY_NAME.textContent = data.city.name;
+    CITY_NAME.textContent = "Weather card of " + data.city.name;
     MINIMAL_TEMPERATURE.textContent = data.forecast.tmin + "°C";
     MAXIMAL_TEMPERATURE.textContent = data.forecast.tmax + "°C";
     RAIN_PROBABILITY.textContent = data.forecast.probarain + "%";
