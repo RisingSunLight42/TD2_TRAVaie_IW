@@ -6,55 +6,22 @@
 * {
     margin: 0;
     padding: 0;
-    font-family: 'Raleway', sans-serif;
-   
+    font-family: "Raleway", sans-serif;
 }
 
-.cloudy {
-    background-image: url("../image/cloudy.webp");
+#background {
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
     background-position: bottom;
 }
 
-.sunny {
-    background-image: url("../image/sunny.webp");
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: cover;
-    background-position: bottom;
-}
-
-.stormy {
-    background-image: url("../image/stormy.webp");
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: cover;
-    background-position: bottom;
-}
-
-.rainy {
-    background-image: url("../image/rainy.webp");
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: cover;
-    background-position: bottom;
-}
-
-.snowy {
-    background-image: url("../image/snowy.webp");
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: cover;
-    background-position: bottom;
-}
-
-html, body{
+html,
+body {
     height: 100%;
 }
 
-h1{
+h1 {
     height: 100%;
     font-size: 4em;
 }
@@ -64,9 +31,7 @@ header {
     height: 8vh;
     text-align: center;
     background-color: var(--background-color);
-    
 }
-
 
 main {
     display: flex;
@@ -78,11 +43,12 @@ nav {
     border-right: 2px solid black;
     height: 100%;
     width: 15%;
-    
+
     background-color: rgba(53, 56, 55, 0.33);
 }
 
-input, select{
+input,
+select {
     margin-bottom: 12%;
     width: 80%;
     border: solid 1px black;
@@ -98,7 +64,6 @@ form {
     padding-top: 18%;
     justify-content: space-around;
     background-color: transparent;
-    
 }
 
 .weatherCard {
@@ -111,14 +76,14 @@ form {
     backdrop-filter: blur(10px);
 }
 
-h2{
+h2 {
     font-size: 2.5em;
     text-align: center;
     height: 7%;
     margin: 2%;
 }
 
-.result{
+.result {
     font-size: 1.5em;
     text-align: center;
     height: 18%;
@@ -127,7 +92,7 @@ h2{
     border-radius: 15px;
 }
 
-footer{
+footer {
     display: flex;
     position: fixed;
     justify-content: space-around;
@@ -138,11 +103,11 @@ footer{
     background-color: var(--background-color);
 }
 
-#image{
+#image {
     margin-top: 10%;
     height: 80%;
 }
-#crew{
+#crew {
     font-size: 2em;
     margin: auto;
 }
