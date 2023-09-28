@@ -127,11 +127,11 @@ const handleUserInputEnability = (isEnabled) => {
     if (isEnabled) {
         LABEL_SELECT_COMMUNITY.style.display = "";
         SELECT_COMMUNITY.style.display = "";
-        FORM_BUTTON.setAttribute("disabled");
+        FORM_BUTTON.style.display = "";
     } else {
         LABEL_SELECT_COMMUNITY.style.display = "none";
         SELECT_COMMUNITY.style.display = "none";
-        FORM_BUTTON.removeAttribute("disabled");
+        FORM_BUTTON.style.display = "none";
     }
 };
 
