@@ -10,7 +10,7 @@ const SELECT_COMMUNITY = document.getElementById("selectCommunity");
 const BACKGROUND = document.getElementById("background");
 const POP_UP_ERROR = document.getElementById("pop-up-error");
 const WEATHER_CODES = {
-    0: "./image/snowy.webp",
+    0: "./image/sunny.webp",
     1: "./image/cloudy.webp",
     2: "./image/cloudy.webp",
     3: "./image/cloudy.webp",
