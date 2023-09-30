@@ -149,7 +149,7 @@ const handleUserInputEnability = (isEnabled) => {
 
 const isCommunityCodeValid = () => {
     const COMMUNITY_CODE = COMMUNITY_CODE_INPUT.value;
-    if (COMMUNITY_CODE.length != 5) return handleUserInputEnability(false);
+    if ((!COMMUNITY_CODE.match(/^([0-9]){5,}$/))) return handleUserInputEnability(false);
     getCommunityList(COMMUNITY_CODE);
 };
 
