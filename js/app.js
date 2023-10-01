@@ -1,3 +1,6 @@
+/**
+ * Constant declaration
+ */
 const CITY_NAME = document.getElementById("nameCity");
 const MINIMAL_TEMPERATURE = document.getElementById("minTemperature");
 const MAXIMAL_TEMPERATURE = document.getElementById("maxTemperature");
@@ -99,7 +102,9 @@ const WEATHER_CODES = {
     232: "./image/snowy.webp",
     235: "./image/rainy.webp",
 };
-
+/**
+ * Function to get the weather from the API
+ */
 function getMeteo(communityCode) {
     const METEO_CONCEPT_API_URL = `https://api.meteo-concept.com/api/forecast/daily/0?token=ba636252d01c0123b3498700ea2041a004c84fcf855e0695651e83c954dd33f7&insee=${communityCode}`;
 
@@ -107,7 +112,10 @@ function getMeteo(communityCode) {
         .then((response) => response.json())
         .then((data) => displayMeteoInfo(data));
 }
-
+/**
+ * Function to display the weather's informations
+ * 
+ */
 function displayMeteoInfo(data) {
     CITY_NAME.textContent = "Weather card of " + data.city.name;
     MINIMAL_TEMPERATURE.textContent =
@@ -146,13 +154,18 @@ const handleUserInputEnability = (isEnabled) => {
         FORM_BUTTON.style.display = "none";
     }
 };
-
+/**
+ * Function to check if the comunity code is correct
+ * 
+ */
 const isCommunityCodeValid = () => {
     const COMMUNITY_CODE = COMMUNITY_CODE_INPUT.value;
     if (COMMUNITY_CODE.length != 5) return handleUserInputEnability(false);
     getCommunityList(COMMUNITY_CODE);
 };
-
+/**
+ * Funtion to get the comunity list from the API
+ */
 const getCommunityList = (communityCode) => {
     try {
         const COMMUNITY_LIST = fetch(
@@ -168,7 +181,9 @@ const getCommunityList = (communityCode) => {
         console.error("Erreur lors de la requête API :\n", error);
     }
 };
-
+/**
+ * Funtion to display the comunity in relation with the community code
+ */
 const displayCommunity = (communityList) => {
     while (SELECT_COMMUNITY.length != 0) SELECT_COMMUNITY.remove(0);
     const DEFAULT_OPTION = document.createElement("option");
