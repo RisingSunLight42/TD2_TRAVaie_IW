@@ -14,13 +14,13 @@ const BACKGROUND = document.getElementById("background");
 const POP_UP_ERROR = document.getElementById("pop-up-error");
 const WEATHER_CODES = {
     0: "./image/sunny.webp",
-    1: "./image/a_bit_cloudy.jpg",
-    2: "./image/cloudy_sky.jpg",
-    3: "./image/cloudy_sun.jpg",
-    4: "./image/grêle.jpg",
+    1: "./image/a_bit_cloudy.webp",
+    2: "./image/cloudy_sky.webp",
+    3: "./image/cloudy_sun.webp",
+    4: "./image/cloudy.webp",
     5: "./image/more_cloudy.webp",
     6: "./image/more_cloudy.webp",
-    7: "./image/brouillard.jpg",
+    7: "./image/fog.webp",
     10: "./image/rainy.webp",
     11: "./image/rainy.webp",
     12: "./image/rainy.webp",
