@@ -143,14 +143,25 @@ function displayMeteoInfo(data) {
     SUN_HOURS.textContent =
         `Sun hour${data.forecast.sun_hours > 1 ? "s" : ""} : ` +
         data.forecast.sun_hours;
-    LATITUDE.textContent = "Decimal latitude : " + data.forecast.latitude;
-    LONGITUDE.textContent = "Decimal longitude : " + data.forecast.longitude;
-    ACCUMULATION_RAIN.textContent =
-        "Accumulation of rain : " + data.forecast.rr10 + " mm";
-    MEDIUM_WIND.textContent =
-        "Medium wind : " + data.forecast.dirwind10m + " km/h";
-    WIND_DIRECTION.textContent =
-        "Wind direction : " + data.forecast.dirwind10m + " °";
+    if (CHECKBOX_LATITUDE.checked) {
+        LATITUDE.textContent = "Decimal latitude : " + data.forecast.latitude;
+    }
+    if (CHECKBOX_LONGITUTE.checked) {
+        LONGITUDE.textContent =
+            "Decimal longitude : " + data.forecast.longitude;
+    }
+    if (CHECKBOX_ACCUMULATION.checked) {
+        ACCUMULATION_RAIN.textContent =
+            "Accumulation of rain : " + data.forecast.rr10 + " mm";
+    }
+    if (CHECKBOX_MEDIUM_WIND.checked) {
+        MEDIUM_WIND.textContent =
+            "Medium wind : " + data.forecast.wind10m + " km/h";
+    }
+    if (CHECKBOX_WIND_DIRECTION.checked) {
+        WIND_DIRECTION.textContent =
+            "Wind direction : " + data.forecast.dirwind10m + " °";
+    }
     BACKGROUND.style.backgroundImage = `url(${
         WEATHER_CODES[data.forecast.weather]
     })`;
@@ -204,11 +215,11 @@ const isCommunityCodeValid = () => {
 const getCommunityList = (communityCode) => {
     try {
         const COMMUNITY_LIST = fetch(
-            `https://geo.api.gouv.fr/communes?codePostal=${communityCode}`
+            `https://geo.api.gouv.fr/communes?codePostal=${communityCode}`,
         )
             .then((API_COMMUNITY_RESPONSE) => API_COMMUNITY_RESPONSE.json())
             .then((data) =>
-                data.map((community) => [community.nom, community.code])
+                data.map((community) => [community.nom, community.code]),
             )
             .then((list) => displayCommunity(list));
         return COMMUNITY_LIST;
