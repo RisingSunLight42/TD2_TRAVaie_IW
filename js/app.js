@@ -6,7 +6,7 @@ const MINIMAL_TEMPERATURE = document.getElementById("minTemperature");
 const MAXIMAL_TEMPERATURE = document.getElementById("maxTemperature");
 const RAIN_PROBABILITY = document.getElementById("rainProbability");
 const SUN_HOURS = document.getElementById("sunHours");
-const LATTITUDE = document.getElementById("latitude");
+const LATITUDE = document.getElementById("latitude");
 const LONGITUDE = document.getElementById("longitude");
 const ACCUMULATION_RAIN = document.getElementById("accumulationRain");
 const MEDIUM_WIND = document.getElementById("mediumWind");
@@ -138,7 +138,7 @@ function displayMeteoInfo(data) {
     SUN_HOURS.textContent =
         `Heure${data.forecast.sun_hours > 1 ? "s" : ""} d'ensoleillement : ` +
         data.forecast.sun_hours;
-    LATTITUDE.textContent =
+    LATITUDE.textContent =
         "Decimal latitude : " + data.forecast.latitude;
     LONGITUDE.textContent = 
         "Decimal longitude : " + data.forecast.longitude;
