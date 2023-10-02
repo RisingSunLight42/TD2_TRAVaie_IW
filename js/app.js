@@ -1,3 +1,6 @@
+/**
+ * Constant declaration
+ */
 const CITY_NAME = document.getElementById("nameCity");
 const MINIMAL_TEMPERATURE = document.getElementById("minTemperature");
 const MAXIMAL_TEMPERATURE = document.getElementById("maxTemperature");
@@ -99,7 +102,10 @@ const WEATHER_CODES = {
     232: "./image/snowy.webp",
     235: "./image/rainy.webp",
 };
-
+/**
+ * Function to get the weather from the API
+ * @param {COMMUNITY_CODE} communityCode -The community code from the form
+ */
 function getMeteo(communityCode) {
     const METEO_CONCEPT_API_URL = `https://api.meteo-concept.com/api/forecast/daily/0?token=ba636252d01c0123b3498700ea2041a004c84fcf855e0695651e83c954dd33f7&insee=${communityCode}`;
     try {
@@ -112,6 +118,10 @@ function getMeteo(communityCode) {
     
 }
 
+/**
+ * Function to display the weather's informations
+ * @param {Object} data - The data retrieve from the API
+ */
 function displayMeteoInfo(data) {
     CITY_NAME.textContent = "Weather card of " + data.city.name;
     MINIMAL_TEMPERATURE.textContent =
@@ -127,9 +137,10 @@ function displayMeteoInfo(data) {
         WEATHER_CODES[data.forecast.weather]
     })`;
 }
-
 /**
  * Function to perform an animation on the display
+ * @param {HTMLElement} element - The HTML Element who will get animated
+ * @param {string} animation - The parameters of the animation
  */
 const triggerAnimation = (element, animation) => {
     // The first three lines are present to reset the animation state and reperform it
@@ -138,7 +149,10 @@ const triggerAnimation = (element, animation) => {
     element.style.animation = null;
     element.style.animation = animation;
 };
-
+/**
+ * Function to display weather card's information or not
+ * @param {boolean} isEnabled 
+ */
 const handleUserInputEnability = (isEnabled) => {
     if (isEnabled) {
         LABEL_SELECT_COMMUNITY.style.display = "";
@@ -150,7 +164,10 @@ const handleUserInputEnability = (isEnabled) => {
         FORM_BUTTON.style.display = "none";
     }
 };
-
+/**
+ * Function to check if the community code is correct
+ * @returns handleUserInputEnability - the parameter that will display (or not) the weather card information
+ */
 const isCommunityCodeValid = () => {
     const COMMUNITY_CODE = COMMUNITY_CODE_INPUT.value;
     const REGEX_TEST = !COMMUNITY_CODE.match(/^([0-9]){5,}$/);
@@ -161,7 +178,11 @@ const isCommunityCodeValid = () => {
     }
     getCommunityList(COMMUNITY_CODE);
 };
-
+/**
+ * Funtion to get the community list from the API
+ * @param {COMMUNITY_CODE} communityCode - The community code from the form
+ * @returns COMMUNITY_LIST - The list of all the community available from the API who match with the COMMUNITY_CODE
+ */
 const getCommunityList = (communityCode) => {
     try {
         const COMMUNITY_LIST = fetch(
@@ -177,7 +198,11 @@ const getCommunityList = (communityCode) => {
         console.error("Erreur lors de la requête API :\n", error);
     }
 };
-
+/**
+ * Funtion to display the community in relation with the community code
+ * @param {COMMUNITY_LIST} communityList - The list of all the community available from the API who match with the COMMUNITY_CODE
+ * @returns handleUserInputEnability - the parameter that will display (or not) the weather card information
+ */
 const displayCommunity = (communityList) => {
     while (SELECT_COMMUNITY.length != 0) SELECT_COMMUNITY.remove(0);
     const DEFAULT_OPTION = document.createElement("option");
