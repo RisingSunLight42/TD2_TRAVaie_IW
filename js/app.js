@@ -6,6 +6,11 @@ const MINIMAL_TEMPERATURE = document.getElementById("minTemperature");
 const MAXIMAL_TEMPERATURE = document.getElementById("maxTemperature");
 const RAIN_PROBABILITY = document.getElementById("rainProbability");
 const SUN_HOURS = document.getElementById("sunHours");
+const LATTITUDE = document.getElementById("latitude");
+const LONGITUDE = document.getElementById("longitude");
+const ACCUMULATION_RAIN = document.getElementById("accumulationRain");
+const MEDIUM_WIND = document.getElementById("mediumWind");
+const WIND_DIRECTION = document.getElementById ("windDirection");
 const FORM_BUTTON = document.getElementById("formButton");
 const COMMUNITY_CODE_INPUT = document.getElementById("communityCode");
 const LABEL_SELECT_COMMUNITY = document.getElementById("labelSelectCommunity");
@@ -133,6 +138,16 @@ function displayMeteoInfo(data) {
     SUN_HOURS.textContent =
         `Heure${data.forecast.sun_hours > 1 ? "s" : ""} d'ensoleillement : ` +
         data.forecast.sun_hours;
+    LATTITUDE.textContent =
+        "Decimal latitude : " + data.forecast.latitude;
+    LONGITUDE.textContent = 
+        "Decimal longitude : " + data.forecast.longitude;
+    ACCUMULATION_RAIN.textContent = 
+        "Accumulation of rain : " + data.forecast.rr10 + " mm";
+    MEDIUM_WIND.textContent =
+        "Medium wind : " + data.forecast.dirwind10m + " km/h";
+    WIND_DIRECTION.textContent = 
+        "Wind direction : " + data.forecast.dirwind10m + " °";
     BACKGROUND.style.backgroundImage = `url(${
         WEATHER_CODES[data.forecast.weather]
     })`;
