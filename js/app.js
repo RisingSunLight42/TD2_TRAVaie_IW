@@ -115,7 +115,6 @@ function getMeteo(communityCode) {
     } catch (error) {
         console.error("Error : Community code invalid.\n", error);
     }
-    
 }
 
 /**
@@ -125,13 +124,13 @@ function getMeteo(communityCode) {
 function displayMeteoInfo(data) {
     CITY_NAME.textContent = "Weather card of " + data.city.name;
     MINIMAL_TEMPERATURE.textContent =
-        "Température minimale : " + data.forecast.tmin + "°C";
+        "Minimum temperature : " + data.forecast.tmin + "°C";
     MAXIMAL_TEMPERATURE.textContent =
-        "Température maximale : " + data.forecast.tmax + "°C";
+        "Maximum temperature : " + data.forecast.tmax + "°C";
     RAIN_PROBABILITY.textContent =
-        "Probabilité de précipitations : " + data.forecast.probarain + "%";
+        "Chance of precipitation : " + data.forecast.probarain + "%";
     SUN_HOURS.textContent =
-        `Heure${data.forecast.sun_hours > 1 ? "s" : ""} d'ensoleillement : ` +
+        `Sun houe${data.forecast.sun_hours > 1 ? "s" : ""} : ` +
         data.forecast.sun_hours;
     BACKGROUND.style.backgroundImage = `url(${
         WEATHER_CODES[data.forecast.weather]
@@ -171,7 +170,7 @@ const handleUserInputEnability = (isEnabled) => {
 const isCommunityCodeValid = () => {
     const COMMUNITY_CODE = COMMUNITY_CODE_INPUT.value;
     const REGEX_TEST = !COMMUNITY_CODE.match(/^([0-9]){5,}$/);
-    if (COMMUNITY_CODE.length !== 5) return handleUserInputEnability(false); 
+    if (COMMUNITY_CODE.length !== 5) return handleUserInputEnability(false);
     if (REGEX_TEST) {
         triggerAnimation(POP_UP_ERROR, "popupAlert 5s ease");
         return handleUserInputEnability(false);
