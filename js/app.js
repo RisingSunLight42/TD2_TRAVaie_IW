@@ -135,7 +135,7 @@ function displayMeteoInfo(data) {
     RAIN_PROBABILITY.textContent =
         "Chance of precipitation : " + data.forecast.probarain + "%";
     SUN_HOURS.textContent =
-        `Sun houe${data.forecast.sun_hours > 1 ? "s" : ""} : ` +
+        `Sun hour${data.forecast.sun_hours > 1 ? "s" : ""} : ` +
         data.forecast.sun_hours;
     LATITUDE.textContent =
         "Decimal latitude : " + data.forecast.latitude;
