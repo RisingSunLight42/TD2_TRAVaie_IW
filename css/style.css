@@ -1,12 +1,14 @@
 :root {
     --cloudy-color: rgb(8, 101, 138);
     --background-color: rgba(55, 53, 56, 0.33);
+    --font-color: white;
 }
 
 * {
     margin: 0;
     padding: 0;
     font-family: "Raleway", sans-serif;
+    color: var(--font-color);
 }
 
 #background {
@@ -14,6 +16,7 @@
     background-attachment: fixed;
     background-size: cover;
     background-position: bottom;
+    background-image: url("../image/multivers.webp");
 }
 
 html,
@@ -28,7 +31,7 @@ body {
 }
 
 header {
-    border-bottom: solid 3px black;
+    border-bottom: solid 3px var(--font-color);
     height: calc(8vh - 3px);
     text-align: center;
     background-color: var(--background-color);
@@ -41,7 +44,7 @@ main {
 
 nav {
     margin-top: 0;
-    border-right: 2px solid black;
+    border-right: 2px solid var(--font-color);
     height: 100%;
     width: 15%;
     background-color: rgba(53, 56, 55, 0.33);
@@ -65,7 +68,12 @@ form {
 input,
 select {
     width: 80%;
-    border: solid 1px black;
+    border: solid 1px var(--font-color);
+    color: black;
+}
+
+option {
+    color: black;
 }
 
 #formButton:hover {
@@ -76,7 +84,7 @@ select {
     height: 90%;
     width: 80%;
     margin: auto;
-    border: solid 2px black;
+    border: solid 2px var(--font-color);
     border-radius: 20px;
     background-color: rgba(53, 56, 55, 0.33);
     backdrop-filter: blur(10px);
@@ -96,7 +104,7 @@ h2 {
     align-items: center;
     height: 18%;
     margin: 1vw;
-    border: solid 2px black;
+    border: solid 2px var(--font-color);
     border-radius: 15px;
 }
 
@@ -107,7 +115,7 @@ footer {
     bottom: 0;
     height: 8vh;
     width: 100%;
-    border-top: solid 2px black;
+    border-top: solid 2px var(--font-color);
     background-color: var(--background-color);
 }
 
@@ -132,7 +140,6 @@ footer {
     right: 0;
     display: flex;
     background-color: white;
-    color: black;
     border: solid 1px black;
     border-radius: 5px 3px 3px 5px;
     transform: translateX(100%);
@@ -152,16 +159,38 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
+    color: black;
 }
 
 .pop-up h1 {
     margin: 0 0 5px 0;
+    color: black;
     text-align: left;
     font-size: 1.5em;
 }
 
 .pop-up p {
     margin: 0;
+    color: black;
+}
+
+#option {
+    display: flex;
+    flex-direction: column;
+    height: 25%;
+    justify-content: space-around;
+}
+
+#option div {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 5px;
+}
+
+#option label,
+#option input {
+    display: inline;
+    width: fit-content;
 }
 
 @keyframes popupAlert {
@@ -178,8 +207,7 @@ footer {
 }
 
 /* For larger phone compatibility*/
-@media screen and (max-width: 700px){
-
+@media screen and (max-width: 700px) {
     header {
         height: auto;
     }
@@ -241,13 +269,10 @@ footer {
         font-size: 1.5em;
         margin: auto;
     }
-
-
 }
 
 /* For phone compatibility*/
-@media screen and (max-width: 400px){
-
+@media screen and (max-width: 400px) {
     h2 {
         font-size: 1.2em;
     }
@@ -265,7 +290,7 @@ footer {
     }
 }
 
-@media screen and (max-width: 380px){
+@media screen and (max-width: 380px) {
     main {
         margin-top: 10%;
     }
@@ -275,7 +300,7 @@ footer {
     }
 }
 
-@media screen and (max-width: 360px){
+@media screen and (max-width: 360px) {
     main {
         margin-top: 8%;
     }
@@ -286,8 +311,7 @@ footer {
 }
 
 /*For Galaxy Fold Compatibility or a small phone*/
-@media screen and (max-width: 340px){
-
+@media screen and (max-width: 340px) {
     h2 {
         font-size: 1.1em;
     }
@@ -299,5 +323,4 @@ footer {
     #crew {
         font-size: 1em;
     }
-
 }
