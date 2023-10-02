@@ -102,10 +102,14 @@ const WEATHER_CODES = {
 
 function getMeteo(communityCode) {
     const METEO_CONCEPT_API_URL = `https://api.meteo-concept.com/api/forecast/daily/0?token=ba636252d01c0123b3498700ea2041a004c84fcf855e0695651e83c954dd33f7&insee=${communityCode}`;
-
-    fetch(METEO_CONCEPT_API_URL)
-        .then((response) => response.json())
-        .then((data) => displayMeteoInfo(data));
+    try {
+        fetch(METEO_CONCEPT_API_URL)
+            .then((response) => response.json())
+            .then((data) => displayMeteoInfo(data));
+    } catch (error) {
+        console.error("Error : Community code invalid.\n", error);
+    }
+    
 }
 
 function displayMeteoInfo(data) {
@@ -149,7 +153,12 @@ const handleUserInputEnability = (isEnabled) => {
 
 const isCommunityCodeValid = () => {
     const COMMUNITY_CODE = COMMUNITY_CODE_INPUT.value;
-    if (COMMUNITY_CODE.length != 5) return handleUserInputEnability(false);
+    const REGEX_TEST = !COMMUNITY_CODE.match(/^([0-9]){5,}$/);
+    if (COMMUNITY_CODE.length !== 5) return handleUserInputEnability(false); 
+    if (REGEX_TEST) {
+        triggerAnimation(POP_UP_ERROR, "popupAlert 5s ease");
+        return handleUserInputEnability(false);
+    }
     getCommunityList(COMMUNITY_CODE);
 };
 
