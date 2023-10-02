@@ -142,16 +142,26 @@ function displayMeteoInfo(data) {
     SUN_HOURS.textContent =
         `Sun houe${data.forecast.sun_hours > 1 ? "s" : ""} : ` +
         data.forecast.sun_hours;
-    LATITUDE.textContent =
+    if(CHECKBOX_LATITUDE.checked) {
+        LATITUDE.textContent =
         "Decimal latitude : " + data.forecast.latitude;
-    LONGITUDE.textContent = 
+    }
+    if(CHECKBOX_LONGITUTE.checked) {
+        LONGITUDE.textContent = 
         "Decimal longitude : " + data.forecast.longitude;
-    ACCUMULATION_RAIN.textContent = 
+    }
+    if(CHECKBOX_ACCUMULATION.checked){
+        ACCUMULATION_RAIN.textContent = 
         "Accumulation of rain : " + data.forecast.rr10 + " mm";
-    MEDIUM_WIND.textContent =
-        "Medium wind : " + data.forecast.dirwind10m + " km/h";
-    WIND_DIRECTION.textContent = 
+    }
+    if(CHECKBOX_MEDIUM_WIND.checked) {
+        MEDIUM_WIND.textContent =
+        "Medium wind : " + data.forecast.wind10m + " km/h";
+    }
+    if(CHECKBOX_WIND_DIRECTION.checked) {
+        WIND_DIRECTION.textContent = 
         "Wind direction : " + data.forecast.dirwind10m + " °";
+    }
     BACKGROUND.style.backgroundImage = `url(${
         WEATHER_CODES[data.forecast.weather]
     })`;
