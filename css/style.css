@@ -177,226 +177,127 @@ footer {
     }
 }
 
-/*For Galaxy Fold Compatibility or a small phone*/
-@media screen and (min-width: 280px)  
-and (min-height: 500px)
-and (max-width: 340px){
+/* For larger phone compatibility*/
+@media screen and (max-width: 700px){
 
-header {
-    height: auto;
-}
+    header {
+        height: auto;
+    }
 
-main {
-    margin-top: 2vh;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
+    main {
+        margin-top: 2vh;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
 
-nav {
-    margin: 10px;
-    width: 80%;
-    height: auto;
-    border: solid black 3px;
-    border-radius: 20px;
-    background-color: rgba(53, 56, 55, 0.33);
-    backdrop-filter: blur(10px);
-}
+    nav {
+        margin: 10px;
+        width: 80%;
+        height: auto;
+        border: solid black 3px;
+        border-radius: 20px;
+        background-color: rgba(53, 56, 55, 0.33);
+        backdrop-filter: blur(10px);
+    }
 
-form,
-form > div {
-    padding-bottom: 6px;
-    padding-top: 2px;
-}
+    form,
+    form > div {
+        padding-bottom: 6px;
+        padding-top: 2px;
+    }
 
-form {
-    margin-top: 0;
-    min-height: 0;
-}
+    form {
+        margin-top: 0;
+        min-height: 0;
+    }
 
-label {
-    font-size: larger;
-}
+    label {
+        font-size: larger;
+    }
 
-input,
-select {
-    text-align: center;
-    font-size: larger;
-}
+    input,
+    select {
+        text-align: center;
+        font-size: larger;
+    }
 
-h2 {
-    font-size: 1.1em;
-}
+    h2 {
+        font-size: 1.2em;
+    }
 
-.result {
-    font-size: 1.4em;
-    text-align: center;
-    margin-top: 15px;
-}
+    .result {
+        font-size: 2em;
+        text-align: center;
+        margin-top: 15px;
+    }
 
-footer {
-    position: unset;
-    margin-top: 20px;
-}
+    footer {
+        position: unset;
+        margin-top: 20px;
+    }
 
-#crew {
-    font-size: 1em;
-    margin: auto;
-}
+    #crew {
+        font-size: 1.5em;
+        margin: auto;
+    }
+
 
 }
 
 /* For phone compatibility*/
-@media screen and (min-width: 340px)  
-and (min-height: 500px)
-and (max-width: 400px){
+@media screen and (max-width: 400px){
 
-header {
-    height: auto;
-}
+    h2 {
+        font-size: 1.2em;
+    }
 
-main {
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
-
-nav {
-    margin: 10px;
-    width: 80%;
-    height: auto;
-    border: solid black 3px;
-    border-radius: 20px;
-    background-color: rgba(53, 56, 55, 0.33);
-    backdrop-filter: blur(10px);
-}
-
-form,
-form > div {
-    padding-bottom: 6px;
-    padding-top: 2px;
-}
-
-form {
-    margin-top: 0;
-    min-height: 0;
-}
-
-label {
-    font-size: larger;
-}
-
-input,
-select {
-    text-align: center;
-    font-size: larger;
-}
-
-h2 {
-    font-size: 1.2em;
-}
-
-.result {
-    font-size: 1.8em;
-    text-align: center;
-    margin-top: 15px;
-}
-
-footer {
-    position: unset;
-    margin-top: 18%;
-}
-
-#crew {
-    font-size: 1.5em;
-    margin: auto;
-}
-}
-
-@media screen and (min-width: 340px) and (max-width: 360px){
-    main {
-        margin-top: 18%;
+    .result {
+        font-size: 1.8em;
     }
 
     footer {
         margin-top: 18%;
     }
+
+    #crew {
+        font-size: 1.5em;
+    }
 }
 
-@media screen and (min-width: 360px) and (max-width: 380px){
+@media screen and (max-width: 380px){
     main {
-        margin-top: 12%;
+        margin-top: 10%;
     }
 
     footer {
-        margin-top: 12%;
+        margin-top: 10%;
     }
 }
 
-/* For larger phone compatibility*/
-@media screen and (min-width: 400px)  
-and (min-height: 700px)
-and (max-width: 700px){
+@media screen and (max-width: 360px){
+    main {
+        margin-top: 8%;
+    }
 
-header {
-    height: auto;
+    footer {
+        margin-top: 8%;
+    }
 }
 
-main {
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
+/*For Galaxy Fold Compatibility or a small phone*/
+@media screen and (max-width: 340px){
 
-nav {
-    margin: 10px;
-    width: 80%;
-    height: auto;
-    border: solid black 3px;
-    border-radius: 20px;
-    background-color: rgba(53, 56, 55, 0.33);
-    backdrop-filter: blur(10px);
-}
+    h2 {
+        font-size: 1.1em;
+    }
 
-form,
-form > div {
-    padding-bottom: 6px;
-    padding-top: 2px;
-}
+    .result {
+        font-size: 1.4em;
+    }
 
-form {
-    margin-top: 0;
-    min-height: 0;
-}
-
-label {
-    font-size: larger;
-}
-
-input,
-select {
-    text-align: center;
-    font-size: larger;
-}
-
-h2 {
-    font-size: 1.2em;
-}
-
-.result {
-    font-size: 2em;
-    text-align: center;
-    margin-top: 15px;
-}
-
-footer {
-    position: unset;
-    margin-top: 20px;
-}
-
-#crew {
-    font-size: 1.5em;
-    margin: auto;
-}
+    #crew {
+        font-size: 1em;
+    }
 
 }
