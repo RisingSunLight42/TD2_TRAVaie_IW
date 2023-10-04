@@ -10,7 +10,8 @@ const LATITUDE = document.getElementById("latitude");
 const LONGITUDE = document.getElementById("longitude");
 const ACCUMULATION_RAIN = document.getElementById("accumulationRain");
 const MEDIUM_WIND = document.getElementById("mediumWind");
-const WIND_DIRECTION = document.getElementById ("windDirection");
+const WIND_DIRECTION = document.getElementById("windDirection");
+const FORM = document.getElementById("formWeather");
 const FORM_BUTTON = document.getElementById("formButton");
 const COMMUNITY_CODE_INPUT = document.getElementById("communityCode");
 const LABEL_SELECT_COMMUNITY = document.getElementById("labelSelectCommunity");
@@ -137,15 +138,13 @@ function displayMeteoInfo(data) {
     SUN_HOURS.textContent =
         `Sun hour${data.forecast.sun_hours > 1 ? "s" : ""} : ` +
         data.forecast.sun_hours;
-    LATITUDE.textContent =
-        "Decimal latitude : " + data.forecast.latitude;
-    LONGITUDE.textContent = 
-        "Decimal longitude : " + data.forecast.longitude;
-    ACCUMULATION_RAIN.textContent = 
+    LATITUDE.textContent = "Decimal latitude : " + data.forecast.latitude;
+    LONGITUDE.textContent = "Decimal longitude : " + data.forecast.longitude;
+    ACCUMULATION_RAIN.textContent =
         "Accumulation of rain : " + data.forecast.rr10 + " mm";
     MEDIUM_WIND.textContent =
         "Medium wind : " + data.forecast.dirwind10m + " km/h";
-    WIND_DIRECTION.textContent = 
+    WIND_DIRECTION.textContent =
         "Wind direction : " + data.forecast.dirwind10m + " °";
     BACKGROUND.style.backgroundImage = `url(${
         WEATHER_CODES[data.forecast.weather]
@@ -165,7 +164,7 @@ const triggerAnimation = (element, animation) => {
 };
 /**
  * Function to display weather card's information or not
- * @param {boolean} isEnabled 
+ * @param {boolean} isEnabled
  */
 const handleUserInputEnability = (isEnabled) => {
     if (isEnabled) {
@@ -241,4 +240,7 @@ COMMUNITY_CODE_INPUT.addEventListener("input", () => isCommunityCodeValid());
 FORM_BUTTON.addEventListener("click", () => {
     if (SELECT_COMMUNITY.value != "") getMeteo(SELECT_COMMUNITY.value);
 });
+
+FORM.addEventListener("submit", (event) => event.preventDefault());
+
 handleUserInputEnability(false);
