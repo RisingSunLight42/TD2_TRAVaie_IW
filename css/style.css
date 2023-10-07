@@ -104,6 +104,15 @@ option {
     margin: 0 1%;
 }
 
+#icon {
+    border: unset;
+}
+
+#weatherIcon {
+    position: absolute;
+    height: 35%;
+}
+
 .weatherCardColumnContainer {
     display: flex;
     flex-direction: row;
