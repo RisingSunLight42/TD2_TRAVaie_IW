@@ -8,6 +8,7 @@ const SUN_HOURS = document.getElementById("sunHours");
 const LATITUDE = document.getElementById("latitude");
 const LONGITUDE = document.getElementById("longitude");
 const WIND = document.getElementById("Wind");
+const DATE = document.getElementById("date");
 const FORM_BUTTON = document.getElementById("formButton");
 const FORM_OPTION = document.getElementById("option");
 const CHECKBOX_LATITUDE = document.getElementById("Latitude");
@@ -143,6 +144,15 @@ function displayMeteoInfo(data) {
         "°C";
     RAIN.textContent = "Precipitation : " + data.forecast.probarain + "%";
     SUN_HOURS.textContent = "Sun : " + data.forecast.sun_hours + "h";
+
+    if(data.forecast.day == 0){
+        let date = new Date();
+        DATE.textContent = 
+            date.toLocaleDateString();
+    }
+    
+    
+
 
     BACKGROUND.style.backgroundImage = `url(${
         WEATHER_CODES[data.forecast.weather]
