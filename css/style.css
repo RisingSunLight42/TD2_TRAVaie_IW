@@ -91,6 +91,7 @@ option {
     border-radius: 20px;
     background-color: rgba(53, 56, 55, 0.33);
     backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
 }
 
 .hoursAndIcon {
