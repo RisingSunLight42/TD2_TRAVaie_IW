@@ -136,7 +136,7 @@ function getMeteo(communityCode) {
  * @param {Object} data - The data retrieve from the API
  */
 function displayMeteoInfo(data) {
-    CITY_NAME.textContent = "Weather card of " + data.city.name;
+    CITY_NAME.textContent = data.city.name;
     MINIMAL_TEMPERATURE.textContent =
         "Minimum temperature : " + data.forecast.tmin + "°C";
     MAXIMAL_TEMPERATURE.textContent =
