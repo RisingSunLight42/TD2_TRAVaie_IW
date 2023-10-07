@@ -13,6 +13,7 @@ const MEDIUM_WIND = document.getElementById("mediumWind");
 const WIND_DIRECTION = document.getElementById("windDirection");
 const FORM = document.getElementById("formWeather");
 const FORM_BUTTON = document.getElementById("formButton");
+const FORM_OPTION = document.getElementById("option");
 const CHECKBOX_LATITUDE = document.getElementById("Latitude");
 const CHECKBOX_LONGITUTE = document.getElementById("Longitude");
 const CHECKBOX_ACCUMULATION = document.getElementById("Accumulation");
@@ -144,28 +145,44 @@ function displayMeteoInfo(data) {
         `Sun hour${data.forecast.sun_hours > 1 ? "s" : ""} : ` +
         data.forecast.sun_hours;
     if (CHECKBOX_LATITUDE.checked) {
+        LATITUDE.style.display = "";
         LATITUDE.textContent = "Decimal latitude : " + data.forecast.latitude;
+    } else {
+        LATITUDE.style.display = "none";
     }
     if (CHECKBOX_LONGITUTE.checked) {
+        LONGITUDE.style.display = "";
         LONGITUDE.textContent =
             "Decimal longitude : " + data.forecast.longitude;
+    } else {
+        LONGITUDE.style.display = "none";
     }
     if (CHECKBOX_ACCUMULATION.checked) {
+        ACCUMULATION_RAIN.style.display = "";
         ACCUMULATION_RAIN.textContent =
             "Accumulation of rain : " + data.forecast.rr10 + " mm";
+    } else {
+        ACCUMULATION_RAIN.style.display = "none";
     }
     if (CHECKBOX_MEDIUM_WIND.checked) {
+        MEDIUM_WIND.style.display = "";
         MEDIUM_WIND.textContent =
             "Medium wind : " + data.forecast.wind10m + " km/h";
+    } else {
+        MEDIUM_WIND.style.display = "none";
     }
     if (CHECKBOX_WIND_DIRECTION.checked) {
+        WIND_DIRECTION.style.display = "";
         WIND_DIRECTION.textContent =
             "Wind direction : " + data.forecast.dirwind10m + " °";
+    } else {
+        WIND_DIRECTION.style.display = "none";
     }
     BACKGROUND.style.backgroundImage = `url(${
         WEATHER_CODES[data.forecast.weather]
     })`;
 }
+
 /**
  * Function to perform an animation on the display
  * @param {HTMLElement} element - The HTML Element who will get animated
@@ -191,6 +208,12 @@ const handleUserInputEnability = (isEnabled) => {
         LABEL_SELECT_COMMUNITY.style.display = "none";
         SELECT_COMMUNITY.style.display = "none";
         FORM_BUTTON.style.display = "none";
+        FORM_OPTION.style.display = "none";
+        LATITUDE.style.display = "none";
+        LONGITUDE.style.display = "none";
+        ACCUMULATION_RAIN.style.display = "none";
+        MEDIUM_WIND.style.display = "none";
+        WIND_DIRECTION.style.display = "none";
     }
 };
 /**
@@ -254,7 +277,10 @@ const displayCommunity = (communityList) => {
 COMMUNITY_CODE_INPUT.addEventListener("input", () => isCommunityCodeValid());
 
 FORM_BUTTON.addEventListener("click", () => {
-    if (SELECT_COMMUNITY.value != "") getMeteo(SELECT_COMMUNITY.value);
+    if (SELECT_COMMUNITY.value != "") {
+        getMeteo(SELECT_COMMUNITY.value);
+        FORM_OPTION.style.display = "";
+    }
 });
 
 FORM.addEventListener("submit", (event) => event.preventDefault());
