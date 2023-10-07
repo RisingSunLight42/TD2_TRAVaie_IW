@@ -23,6 +23,7 @@ const SELECT_COMMUNITY = document.getElementById("selectCommunity");
 const BACKGROUND = document.getElementById("background");
 const POP_UP_ERROR = document.getElementById("pop-up-error");
 const WEATHER_ICON = document.getElementById("weatherIcon");
+
 let dataMeteo;
 const WEATHER_CODES = {
     0: ["./image/sunny.webp", "./image/icons/sunny.svg"],
@@ -151,7 +152,6 @@ function displayMeteoInfo(data) {
         let date = new Date();
         DATE.textContent = date.toLocaleDateString();
     }
-
     BACKGROUND.style.backgroundImage = `url(${
         WEATHER_CODES[data.forecast.weather][0]
     })`;
