@@ -2,13 +2,14 @@
  * Constant declaration
  */
 const CITY_NAME = document.getElementById("nameCity");
-const TEMPERATURE = document.getElementById("Temperature");
+const TEMPERATURE = document.getElementById("temperature");
 const RAIN = document.getElementById("rain");
 const SUN_HOURS = document.getElementById("sunHours");
 const LATITUDE = document.getElementById("latitude");
 const LONGITUDE = document.getElementById("longitude");
-const WIND = document.getElementById("Wind");
+const WIND = document.getElementById("wind");
 const DATE = document.getElementById("date");
+const FORM = document.getElementById("formWeather");
 const FORM_BUTTON = document.getElementById("formButton");
 const FORM_OPTION = document.getElementById("option");
 const CHECKBOX_LATITUDE = document.getElementById("Latitude");

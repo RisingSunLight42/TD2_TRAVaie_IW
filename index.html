@@ -68,7 +68,7 @@
                     </div>
                     <div>
                         <label for="Longitude">Longitude:</label>
-                        <input type="checkbox" id="Longitude"/>
+                        <input type="checkbox" id="Longitude" />
                     </div>
                     <div>
                         <label for="Accumulation">Accumulation of rain:</label>
@@ -86,14 +86,20 @@
             </nav>
             <div class="weatherCard">
                 <h2 id="nameCity"></h2>
-                <div class="result" id="date"></div>
-                <div class="result" id="Temperature"></div>
-                <div class="result" id="sunHours"></div>
-                <div class="result" id="rain"></div>
-                <div class="result" id="Wind"></div>
-                <div class="result" id="latitude"></div>
-                <div class="result" id="longitude"></div>
-                
+                <div class="weatherCardColumnContainer">
+                    <div class="weatherCardColumn">
+                        <div class="result" id="icon"></div>
+                        <div class="result" id="temperature"></div>
+                        <div class="result" id="rain"></div>
+                        <div class="result" id="latitude"></div>
+                    </div>
+                    <div class="weatherCardColumn">
+                        <div class="result" id="date"></div>
+                        <div class="result" id="sunHours"></div>
+                        <div class="result" id="wind"></div>
+                        <div class="result" id="longitude"></div>
+                    </div>
+                </div>
             </div>
         </main>
         <footer>
