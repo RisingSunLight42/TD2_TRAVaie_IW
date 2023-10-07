@@ -176,7 +176,7 @@ CHECKBOX_LONGITUTE.addEventListener("input", () => {
 
 CHECKBOX_ACCUMULATION.addEventListener("input", () => {
     if (CHECKBOX_ACCUMULATION.checked) {
-        RAIN.textContent = "Rain : " + dataMeteo.forecast.rr10 + " mm";
+        RAIN.textContent += ` (${dataMeteo.forecast.rr10 + " mm"})`;
     } else {
         RAIN.textContent =
             "Precipitation : " + dataMeteo.forecast.probarain + "%";
@@ -184,10 +184,13 @@ CHECKBOX_ACCUMULATION.addEventListener("input", () => {
 });
 
 CHECKBOX_MEDIUM_WIND.addEventListener("input", () => {
-    console.log();
     if (CHECKBOX_MEDIUM_WIND.checked) {
         WIND.style.display = "";
         WIND.textContent = "Wind : " + dataMeteo.forecast.wind10m + " km/h";
+        if (CHECKBOX_WIND_DIRECTION.checked)
+            WIND.textContent += ` (${dataMeteo.forecast.dirwind10m + " °"})`;
+    } else if (CHECKBOX_WIND_DIRECTION.checked) {
+        WIND.textContent = "Wind : " + dataMeteo.forecast.dirwind10m + " °";
     } else {
         WIND.style.display = "none";
     }
@@ -196,7 +199,12 @@ CHECKBOX_MEDIUM_WIND.addEventListener("input", () => {
 CHECKBOX_WIND_DIRECTION.addEventListener("input", () => {
     if (CHECKBOX_WIND_DIRECTION.checked) {
         WIND.style.display = "";
-        WIND.textContent = "Wind : " + dataMeteo.forecast.dirwind10m + " °";
+        if (CHECKBOX_MEDIUM_WIND.checked)
+            WIND.textContent += ` (${dataMeteo.forecast.dirwind10m + " °"})`;
+        else
+            WIND.textContent = "Wind : " + dataMeteo.forecast.dirwind10m + " °";
+    } else if (CHECKBOX_MEDIUM_WIND.checked) {
+        WIND.textContent = "Wind : " + dataMeteo.forecast.wind10m + " km/h";
     } else {
         WIND.style.display = "none";
     }
@@ -247,6 +255,7 @@ const isCommunityCodeValid = () => {
     }
     getCommunityList(COMMUNITY_CODE);
 };
+
 /**
  * Funtion to get the community list from the API
  * @param {COMMUNITY_CODE} communityCode - The community code from the form
@@ -267,6 +276,7 @@ const getCommunityList = (communityCode) => {
         console.error("Erreur lors de la requête API :\n", error);
     }
 };
+
 /**
  * Funtion to display the community in relation with the community code
  * @param {COMMUNITY_LIST} communityList - The list of all the community available from the API who match with the COMMUNITY_CODE
