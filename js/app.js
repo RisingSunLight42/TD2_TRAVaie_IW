@@ -23,6 +23,7 @@ const LABEL_SELECT_COMMUNITY = document.getElementById("labelSelectCommunity");
 const SELECT_COMMUNITY = document.getElementById("selectCommunity");
 const BACKGROUND = document.getElementById("background");
 const POP_UP_ERROR = document.getElementById("pop-up-error");
+let dataMeteo;
 const WEATHER_CODES = {
     0: "./image/sunny.webp",
     1: "./image/cloudy.webp",
@@ -122,7 +123,9 @@ function getMeteo(communityCode) {
     try {
         fetch(METEO_CONCEPT_API_URL)
             .then((response) => response.json())
-            .then((data) => displayMeteoInfo(data));
+            .then((data) => {
+                dataMeteo = data
+                displayMeteoInfo(data)});
     } catch (error) {
         console.error("Error : Community code invalid.\n", error);
     }
@@ -143,48 +146,77 @@ function displayMeteoInfo(data) {
     SUN_HOURS.textContent =
         `Sun houe${data.forecast.sun_hours > 1 ? "s" : ""} : ` +
         data.forecast.sun_hours;
-    if(CHECKBOX_LATITUDE.checked) {
-        LATITUDE.style.display = "";
-        LATITUDE.textContent =
-        "Decimal latitude : " + data.forecast.latitude;
-    }else{
-        LATITUDE.style.display = "none";
-    }
-    if(CHECKBOX_LONGITUTE.checked) {
-        LONGITUDE.style.display = "";
-        LONGITUDE.textContent = 
-        "Decimal longitude : " + data.forecast.longitude;
-    }else{
-        LONGITUDE.style.display = "none";
-    }
-    if(CHECKBOX_ACCUMULATION.checked){
-        ACCUMULATION_RAIN.style.display ="";
-        ACCUMULATION_RAIN.textContent = 
-        "Accumulation of rain : " + data.forecast.rr10 + " mm";
-    }else{
-        ACCUMULATION_RAIN.style.display = "none";
-    }
-    if(CHECKBOX_MEDIUM_WIND.checked) {
-        MEDIUM_WIND.style.display ="";
-        MEDIUM_WIND.textContent =
-        "Medium wind : " + data.forecast.wind10m + " km/h";
-    }else{
-        MEDIUM_WIND.style.display ="none";
-    }
-    if(CHECKBOX_WIND_DIRECTION.checked) {
-        WIND_DIRECTION.style.display = "";
-        WIND_DIRECTION.textContent = 
-        "Wind direction : " + data.forecast.dirwind10m + " °";
-    }else{
-        WIND_DIRECTION.style.display = "none";
-    }
+
     BACKGROUND.style.backgroundImage = `url(${
         WEATHER_CODES[data.forecast.weather]
     })`;
 }
 
 
+let boolLatitude = true;
+CHECKBOX_LATITUDE.addEventListener("input" ,()=>{
+    if(boolLatitude){
+    LATITUDE.style.display = "";
+    LATITUDE.textContent =
+    "Decimal latitude : " + dataMeteo.forecast.latitude;
+    boolLatitude = false;
+    }else{
+        LATITUDE.style.display = "none";
+        boolLatitude = true;
+    }
+})
 
+let boolLongitude = true;
+CHECKBOX_LONGITUTE.addEventListener("input", ()=>{
+    if(boolLongitude){
+    LONGITUDE.style.display = "";
+    LONGITUDE.textContent = 
+    "Decimal longitude : " + dataMeteo.forecast.longitude;
+    boolLongitude = false;
+    }else{
+        LONGITUDE.style.display = "none";
+        boolLongitude = true;
+    }
+})
+
+let boolRainAccumulation = true;
+CHECKBOX_ACCUMULATION.addEventListener("input" ,()=>{
+    if(boolRainAccumulation){
+    ACCUMULATION_RAIN.style.display ="";
+        ACCUMULATION_RAIN.textContent = 
+        "Accumulation of rain : " + dataMeteo.forecast.rr10 + " mm";
+        boolRainAccumulation = false;
+    }else{
+        ACCUMULATION_RAIN.style.display ="none";
+        boolRainAccumulation = true
+    }
+})
+
+let boolMediumWind = true;
+CHECKBOX_MEDIUM_WIND.addEventListener("input", ()=>{
+    if(boolMediumWind){
+        MEDIUM_WIND.style.display ="";
+        MEDIUM_WIND.textContent =
+        "Medium wind : " + dataMeteo.forecast.wind10m + " km/h";
+    boolMediumWind = false;
+    }else{
+        MEDIUM_WIND.style.display ="none";
+        boolMediumWind = true;
+    }
+})
+
+let boolWindDirection = true;
+CHECKBOX_WIND_DIRECTION.addEventListener("input", ()=>{
+    if(boolWindDirection){
+        WIND_DIRECTION.style.display = "";
+        WIND_DIRECTION.textContent = 
+        "Wind direction : " + dataMeteo.forecast.dirwind10m + " °";
+        boolWindDirection = false;
+    }else{
+        WIND_DIRECTION.style.display = "none";
+        boolWindDirection = true;
+    }
+})
 
 /**
  * Function to perform an animation on the display
