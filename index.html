@@ -43,15 +43,19 @@
                             name="formCodePostal"
                         />
                     </div>
-                    <div>
+                    <div id="selectCommunityDiv">
                         <label id="labelSelectCommunity" for="selectCommunity"
                             >Town :</label
                         >
-                        <select type="select" id="selectCommunity">
+                        <select id="selectCommunity">
                             <option value="">
                                 --Please choose your town--
                             </option>
                         </select>
+                    </div>
+                    <div id="selectDayDiv">
+                        <label id="labelSelectDay" for="selectDay">Day :</label>
+                        <select id="selectDay"></select>
                     </div>
                     <input
                         type="button"
@@ -68,7 +72,7 @@
                     </div>
                     <div>
                         <label for="Longitude">Longitude:</label>
-                        <input type="checkbox" id="Longitude"/>
+                        <input type="checkbox" id="Longitude" />
                     </div>
                     <div>
                         <label for="Accumulation">Accumulation of rain:</label>
@@ -85,10 +89,14 @@
                 </div>
             </nav>
             <div class="weatherCard">
-                <h2 id="nameCity"></h2>
+                <h2 id="nameCity">Please, choose a city</h2>
                 <div class="hoursAndIcon">
                     <div class="result" id="icon">
-                        <img id="weatherIcon" src="" alt="Weather Icon" />
+                        <img
+                            id="weatherIcon"
+                            src="./image/icons/sunny.svg"
+                            alt="Weather Icon"
+                        />
                     </div>
                     <div class="result" id="date"></div>
                 </div>

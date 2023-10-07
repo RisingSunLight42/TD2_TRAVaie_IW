@@ -8,7 +8,7 @@ const SUN_HOURS = document.getElementById("sunHours");
 const LATITUDE = document.getElementById("latitude");
 const LONGITUDE = document.getElementById("longitude");
 const WIND = document.getElementById("wind");
-const DATE = document.getElementById("date");
+const DATE_DISPLAY = document.getElementById("date");
 const FORM = document.getElementById("formWeather");
 const FORM_BUTTON = document.getElementById("formButton");
 const FORM_OPTION = document.getElementById("option");
@@ -18,8 +18,10 @@ const CHECKBOX_ACCUMULATION = document.getElementById("Accumulation");
 const CHECKBOX_MEDIUM_WIND = document.getElementById("Medium-wind");
 const CHECKBOX_WIND_DIRECTION = document.getElementById("Wind-direction");
 const COMMUNITY_CODE_INPUT = document.getElementById("communityCode");
-const LABEL_SELECT_COMMUNITY = document.getElementById("labelSelectCommunity");
+const SELECT_COMMUNITY_DIV = document.getElementById("selectCommunityDiv");
 const SELECT_COMMUNITY = document.getElementById("selectCommunity");
+const SELECT_DAY_DIV = document.getElementById("selectDayDiv");
+const SELECT_DAY = document.getElementById("selectDay");
 const BACKGROUND = document.getElementById("background");
 const POP_UP_ERROR = document.getElementById("pop-up-error");
 const WEATHER_ICON = document.getElementById("weatherIcon");
@@ -120,7 +122,7 @@ const WEATHER_CODES = {
  * @param {COMMUNITY_CODE} communityCode -The community code from the form
  */
 function getMeteo(communityCode) {
-    const METEO_CONCEPT_API_URL = `https://api.meteo-concept.com/api/forecast/daily/0?token=ba636252d01c0123b3498700ea2041a004c84fcf855e0695651e83c954dd33f7&insee=${communityCode}`;
+    const METEO_CONCEPT_API_URL = `https://api.meteo-concept.com/api/forecast/daily/${SELECT_DAY.value}?token=ba636252d01c0123b3498700ea2041a004c84fcf855e0695651e83c954dd33f7&insee=${communityCode}`;
     try {
         fetch(METEO_CONCEPT_API_URL)
             .then((response) => response.json())
@@ -148,10 +150,10 @@ function displayMeteoInfo(data) {
     RAIN.textContent = "Precipitation : " + data.forecast.probarain + "%";
     SUN_HOURS.textContent = "Sun : " + data.forecast.sun_hours + "h";
 
-    if (data.forecast.day == 0) {
-        let date = new Date();
-        DATE.textContent = date.toLocaleDateString();
-    }
+    const DATE = new Date();
+    DATE.setDate(DATE.getDate() + data.forecast.day);
+    DATE_DISPLAY.textContent = DATE.toLocaleDateString();
+
     BACKGROUND.style.backgroundImage = `url(${
         WEATHER_CODES[data.forecast.weather][0]
     })`;
@@ -159,34 +161,46 @@ function displayMeteoInfo(data) {
     WEATHER_ICON.src = WEATHER_CODES[data.forecast.weather][1];
 }
 
-CHECKBOX_LATITUDE.addEventListener("input", () => {
+/**
+ * Function triggered when the latitude checkbox is ticked
+ */
+const latitudeTicked = () => {
     if (CHECKBOX_LATITUDE.checked) {
         LATITUDE.style.display = "";
         LATITUDE.textContent = "Latitude : " + dataMeteo.forecast.latitude;
     } else {
         LATITUDE.style.display = "none";
     }
-});
+};
 
-CHECKBOX_LONGITUTE.addEventListener("input", () => {
+/**
+ * Function triggered when the longitude checkbox is ticked
+ */
+const longitudeTicked = () => {
     if (CHECKBOX_LONGITUTE.checked) {
         LONGITUDE.style.display = "";
         LONGITUDE.textContent = "Longitude : " + dataMeteo.forecast.longitude;
     } else {
         LONGITUDE.style.display = "none";
     }
-});
+};
 
-CHECKBOX_ACCUMULATION.addEventListener("input", () => {
+/**
+ * Function triggered when the accumulation checkbox is ticked
+ */
+const accumulationTicked = () => {
     if (CHECKBOX_ACCUMULATION.checked) {
         RAIN.textContent += ` (${dataMeteo.forecast.rr10 + " mm"})`;
     } else {
         RAIN.textContent =
             "Precipitation : " + dataMeteo.forecast.probarain + "%";
     }
-});
+};
 
-CHECKBOX_MEDIUM_WIND.addEventListener("input", () => {
+/**
+ * Function triggered when the medium wind checkbox is ticked
+ */
+const mediumWindTicked = () => {
     if (CHECKBOX_MEDIUM_WIND.checked) {
         WIND.style.display = "";
         WIND.textContent = "Wind : " + dataMeteo.forecast.wind10m + " km/h";
@@ -197,9 +211,12 @@ CHECKBOX_MEDIUM_WIND.addEventListener("input", () => {
     } else {
         WIND.style.display = "none";
     }
-});
+};
 
-CHECKBOX_WIND_DIRECTION.addEventListener("input", () => {
+/**
+ * Function triggered when the wind direction checkbox is ticked
+ */
+const windDirectionTicked = () => {
     if (CHECKBOX_WIND_DIRECTION.checked) {
         WIND.style.display = "";
         if (CHECKBOX_MEDIUM_WIND.checked)
@@ -211,7 +228,17 @@ CHECKBOX_WIND_DIRECTION.addEventListener("input", () => {
     } else {
         WIND.style.display = "none";
     }
-});
+};
+
+CHECKBOX_LATITUDE.addEventListener("input", latitudeTicked);
+
+CHECKBOX_LONGITUTE.addEventListener("input", longitudeTicked);
+
+CHECKBOX_ACCUMULATION.addEventListener("input", accumulationTicked);
+
+CHECKBOX_MEDIUM_WIND.addEventListener("input", mediumWindTicked);
+
+CHECKBOX_WIND_DIRECTION.addEventListener("input", windDirectionTicked);
 
 /**
  * Function to perform an animation on the display
@@ -231,12 +258,12 @@ const triggerAnimation = (element, animation) => {
  */
 const handleUserInputEnability = (isEnabled) => {
     if (isEnabled) {
-        LABEL_SELECT_COMMUNITY.style.display = "";
-        SELECT_COMMUNITY.style.display = "";
+        SELECT_COMMUNITY_DIV.style.display = "";
+        SELECT_DAY_DIV.style.display = "";
         FORM_BUTTON.style.display = "";
     } else {
-        LABEL_SELECT_COMMUNITY.style.display = "none";
-        SELECT_COMMUNITY.style.display = "none";
+        SELECT_COMMUNITY_DIV.style.display = "none";
+        SELECT_DAY_DIV.style.display = "none";
         FORM_BUTTON.style.display = "none";
         FORM_OPTION.style.display = "none";
         LATITUDE.style.display = "none";
@@ -305,15 +332,39 @@ const displayCommunity = (communityList) => {
     handleUserInputEnability(true);
 };
 
+/**
+ * Generate option for the day div
+ */
+const gerenateOptionSelectDay = () => {
+    const DEFAULT_OPTION = document.createElement("option");
+    DEFAULT_OPTION.text = "Today";
+    DEFAULT_OPTION.value = "0";
+    SELECT_DAY.add(DEFAULT_OPTION);
+    for (let i = 1; i < 7; i++) {
+        const OPTION = document.createElement("option");
+        const DATE = new Date();
+        DATE.setDate(DATE.getDate() + i);
+        OPTION.text = DATE.toLocaleDateString();
+        OPTION.value = i;
+        SELECT_DAY.add(OPTION);
+    }
+};
+
 COMMUNITY_CODE_INPUT.addEventListener("input", () => isCommunityCodeValid());
 
 FORM_BUTTON.addEventListener("click", () => {
     if (SELECT_COMMUNITY.value != "") {
         getMeteo(SELECT_COMMUNITY.value);
         FORM_OPTION.style.display = "";
+        latitudeTicked();
+        longitudeTicked();
+        accumulationTicked();
+        mediumWindTicked();
+        windDirectionTicked();
     }
 });
 
 FORM.addEventListener("submit", (event) => event.preventDefault());
 
 handleUserInputEnability(false);
+gerenateOptionSelectDay();
