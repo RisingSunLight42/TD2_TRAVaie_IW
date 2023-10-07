@@ -111,6 +111,7 @@ option {
 #weatherIcon {
     position: absolute;
     height: 35%;
+    max-height: 250px;
 }
 
 .weatherCardColumnContainer {
@@ -257,15 +258,13 @@ footer {
     }
 
     main {
-        margin-top: 2vh;
-        height: auto;
+        margin: 4vh 0;
         justify-content: center;
         align-items: center;
         flex-direction: column;
     }
 
     nav {
-        margin: 10px;
         width: 80%;
         min-height: 400px;
         height: auto;
@@ -306,6 +305,10 @@ footer {
 
     .weatherCard {
         min-height: 50%;
+    }
+
+    #weatherIcon {
+        max-height: 175px;
     }
 
     .result {
