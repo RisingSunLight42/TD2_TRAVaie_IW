@@ -156,63 +156,49 @@ function displayMeteoInfo(data) {
     })`;
 }
 
-let boolLatitude = true;
 CHECKBOX_LATITUDE.addEventListener("input", () => {
-    if (boolLatitude) {
+    if (CHECKBOX_LATITUDE.checked) {
         LATITUDE.style.display = "";
         LATITUDE.textContent = "Latitude : " + dataMeteo.forecast.latitude;
-        boolLatitude = false;
     } else {
         LATITUDE.style.display = "none";
-        boolLatitude = true;
     }
 });
 
-let boolLongitude = true;
 CHECKBOX_LONGITUTE.addEventListener("input", () => {
-    if (boolLongitude) {
+    if (CHECKBOX_LONGITUTE.checked) {
         LONGITUDE.style.display = "";
         LONGITUDE.textContent = "Longitude : " + dataMeteo.forecast.longitude;
-        boolLongitude = false;
     } else {
         LONGITUDE.style.display = "none";
-        boolLongitude = true;
     }
 });
 
-let boolRainAccumulation = true;
 CHECKBOX_ACCUMULATION.addEventListener("input", () => {
-    if (boolRainAccumulation) {
+    if (CHECKBOX_ACCUMULATION.checked) {
         RAIN.textContent = "Rain : " + dataMeteo.forecast.rr10 + " mm";
-        boolRainAccumulation = false;
     } else {
         RAIN.textContent =
             "Precipitation : " + dataMeteo.forecast.probarain + "%";
-        boolRainAccumulation = true;
     }
 });
 
-let boolMediumWind = true;
 CHECKBOX_MEDIUM_WIND.addEventListener("input", () => {
-    if (boolMediumWind) {
+    console.log();
+    if (CHECKBOX_MEDIUM_WIND.checked) {
         WIND.style.display = "";
-        WIND.textContent = "wind : " + dataMeteo.forecast.wind10m + " km/h";
-        boolMediumWind = false;
+        WIND.textContent = "Wind : " + dataMeteo.forecast.wind10m + " km/h";
     } else {
         WIND.style.display = "none";
-        boolMediumWind = true;
     }
 });
 
-let boolWindDirection = true;
 CHECKBOX_WIND_DIRECTION.addEventListener("input", () => {
-    if (boolWindDirection) {
+    if (CHECKBOX_WIND_DIRECTION.checked) {
         WIND.style.display = "";
         WIND.textContent = "Wind : " + dataMeteo.forecast.dirwind10m + " °";
-        boolWindDirection = false;
     } else {
         WIND.style.display = "none";
-        boolWindDirection = true;
     }
 });
 
