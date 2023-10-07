@@ -46,6 +46,7 @@ nav {
     margin-top: 0;
     border-right: 2px solid var(--font-color);
     height: 100%;
+    min-width: 150px;
     width: 15%;
     background-color: rgba(53, 56, 55, 0.33);
 }
@@ -81,13 +82,48 @@ option {
 }
 
 .weatherCard {
+    display: flex;
+    flex-direction: column;
     height: 90%;
     width: 80%;
-    margin: auto;
+    margin: auto 3%;
     border: solid 2px var(--font-color);
     border-radius: 20px;
     background-color: rgba(53, 56, 55, 0.33);
     backdrop-filter: blur(10px);
+}
+
+.hoursAndIcon {
+    min-height: 18%;
+    display: flex;
+    flex-direction: row;
+}
+
+.hoursAndIcon > .result {
+    height: 80%;
+    margin: 0 1%;
+}
+
+#icon {
+    border: unset;
+}
+
+#weatherIcon {
+    position: absolute;
+    height: 35%;
+}
+
+.weatherCardColumnContainer {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+}
+
+.weatherCardColumn {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    justify-content: space-between;
 }
 
 h2 {
@@ -99,11 +135,13 @@ h2 {
 
 .result {
     display: flex;
-    font-size: 2.5em;
+    flex: 50%;
+    font-size: 2em;
     justify-content: center;
     align-items: center;
     height: 18%;
-    margin: 1vw;
+    margin: 2%;
+    padding: 5px;
     border: solid 2px var(--font-color);
     border-radius: 15px;
 }
@@ -208,12 +246,19 @@ footer {
 
 /* For larger phone compatibility*/
 @media screen and (max-width: 700px) {
+    body {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
     header {
         height: auto;
     }
 
     main {
         margin-top: 2vh;
+        height: auto;
         justify-content: center;
         align-items: center;
         flex-direction: column;
@@ -222,11 +267,16 @@ footer {
     nav {
         margin: 10px;
         width: 80%;
+        min-height: 400px;
         height: auto;
         border: solid black 3px;
         border-radius: 20px;
         background-color: rgba(53, 56, 55, 0.33);
         backdrop-filter: blur(10px);
+    }
+
+    #option {
+        height: 50%;
     }
 
     form,
@@ -254,6 +304,10 @@ footer {
         font-size: 1.2em;
     }
 
+    .weatherCard {
+        min-height: 50%;
+    }
+
     .result {
         font-size: 2em;
         text-align: center;
@@ -268,6 +322,32 @@ footer {
     #crew {
         font-size: 1.5em;
         margin: auto;
+    }
+}
+
+/* For larger phone compatibility*/
+@media screen and (max-width: 600px) {
+    .weatherCardColumnContainer,
+    .hoursAndIcon {
+        flex-direction: column;
+    }
+
+    .hoursAndIcon {
+        min-height: unset;
+        gap: 10px;
+        height: auto;
+    }
+
+    .hoursAndIcon > .result {
+        margin: 2%;
+    }
+
+    .weatherCardColumn {
+        width: 100%;
+    }
+
+    .result {
+        min-height: 50px;
     }
 }
 

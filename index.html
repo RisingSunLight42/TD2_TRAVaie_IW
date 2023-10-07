@@ -85,16 +85,25 @@
                 </div>
             </nav>
             <div class="weatherCard">
-                <h2 id="nameCity">Weather card</h2>
-                <div class="result" id="minTemperature"></div>
-                <div class="result" id="maxTemperature"></div>
-                <div class="result" id="rainProbability"></div>
-                <div class="result" id="sunHours"></div>
-                <div class="result" id="latitude"></div>
-                <div class="result" id="longitude"></div>
-                <div class="result" id="accumulationRain"></div>
-                <div class="result" id="mediumWind"></div>
-                <div class="result" id="windDirection"></div>
+                <h2 id="nameCity"></h2>
+                <div class="hoursAndIcon">
+                    <div class="result" id="icon">
+                        <img id="weatherIcon" src="" alt="Weather Icon" />
+                    </div>
+                    <div class="result" id="date"></div>
+                </div>
+                <div class="weatherCardColumnContainer">
+                    <div class="weatherCardColumn">
+                        <div class="result" id="temperature"></div>
+                        <div class="result" id="rain"></div>
+                        <div class="result" id="latitude"></div>
+                    </div>
+                    <div class="weatherCardColumn">
+                        <div class="result" id="sunHours"></div>
+                        <div class="result" id="wind"></div>
+                        <div class="result" id="longitude"></div>
+                    </div>
+                </div>
             </div>
         </main>
         <footer>

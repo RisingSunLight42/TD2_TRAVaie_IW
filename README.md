@@ -27,3 +27,7 @@ If you want to contribute to the projet, please follow those standards :
 
 -   [Administration division by municipality API](https://geo.api.gouv.fr/decoupage-administratif/communes)
 -   [Weather API by MétéoConcept](https://api.meteo-concept.com/)
+
+### Icons
+
+-   [Icons used for the weather](https://www.amcharts.com/free-animated-svg-weather-icons/)
