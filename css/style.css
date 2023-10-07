@@ -81,6 +81,8 @@ option {
 }
 
 .weatherCard {
+    display: flex;
+    flex-direction: column;
     height: 90%;
     width: 80%;
     margin: auto;
@@ -99,10 +101,12 @@ h2 {
 
 .result {
     display: flex;
+    flex : 50%;
     font-size: 2.5em;
     justify-content: center;
     align-items: center;
     height: 18%;
+    width: 50%;
     margin: 1vw;
     border: solid 2px var(--font-color);
     border-radius: 15px;

@@ -2,15 +2,12 @@
  * Constant declaration
  */
 const CITY_NAME = document.getElementById("nameCity");
-const MINIMAL_TEMPERATURE = document.getElementById("minTemperature");
-const MAXIMAL_TEMPERATURE = document.getElementById("maxTemperature");
-const RAIN_PROBABILITY = document.getElementById("rainProbability");
+const TEMPERATURE = document.getElementById("Temperature");
+const RAIN = document.getElementById("rain");
 const SUN_HOURS = document.getElementById("sunHours");
 const LATITUDE = document.getElementById("latitude");
 const LONGITUDE = document.getElementById("longitude");
-const ACCUMULATION_RAIN = document.getElementById("accumulationRain");
-const MEDIUM_WIND = document.getElementById("mediumWind");
-const WIND_DIRECTION = document.getElementById ("windDirection");
+const WIND = document.getElementById("Wind");
 const FORM_BUTTON = document.getElementById("formButton");
 const FORM_OPTION = document.getElementById("option");
 const CHECKBOX_LATITUDE = document.getElementById("Latitude");
@@ -137,15 +134,12 @@ function getMeteo(communityCode) {
  */
 function displayMeteoInfo(data) {
     CITY_NAME.textContent = data.city.name;
-    MINIMAL_TEMPERATURE.textContent =
-        "Minimum temperature : " + data.forecast.tmin + "°C";
-    MAXIMAL_TEMPERATURE.textContent =
-        "Maximum temperature : " + data.forecast.tmax + "°C";
-    RAIN_PROBABILITY.textContent =
-        "Chance of precipitation : " + data.forecast.probarain + "%";
+    TEMPERATURE.textContent =
+        "Temperature : " + data.forecast.tmin + "°C/" + data.forecast.tmax +"°C";
+    RAIN.textContent =
+        "Precipitation : " + data.forecast.probarain + "%";
     SUN_HOURS.textContent =
-        `Sun houe${data.forecast.sun_hours > 1 ? "s" : ""} : ` +
-        data.forecast.sun_hours;
+        "Sun : " + data.forecast.sun_hours +"h";
 
     BACKGROUND.style.backgroundImage = `url(${
         WEATHER_CODES[data.forecast.weather]
@@ -158,7 +152,7 @@ CHECKBOX_LATITUDE.addEventListener("input" ,()=>{
     if(boolLatitude){
     LATITUDE.style.display = "";
     LATITUDE.textContent =
-    "Decimal latitude : " + dataMeteo.forecast.latitude;
+    "Latitude : " + dataMeteo.forecast.latitude;
     boolLatitude = false;
     }else{
         LATITUDE.style.display = "none";
@@ -171,7 +165,7 @@ CHECKBOX_LONGITUTE.addEventListener("input", ()=>{
     if(boolLongitude){
     LONGITUDE.style.display = "";
     LONGITUDE.textContent = 
-    "Decimal longitude : " + dataMeteo.forecast.longitude;
+    "Longitude : " + dataMeteo.forecast.longitude;
     boolLongitude = false;
     }else{
         LONGITUDE.style.display = "none";
@@ -182,25 +176,25 @@ CHECKBOX_LONGITUTE.addEventListener("input", ()=>{
 let boolRainAccumulation = true;
 CHECKBOX_ACCUMULATION.addEventListener("input" ,()=>{
     if(boolRainAccumulation){
-    ACCUMULATION_RAIN.style.display ="";
-        ACCUMULATION_RAIN.textContent = 
-        "Accumulation of rain : " + dataMeteo.forecast.rr10 + " mm";
+        RAIN.textContent = 
+        "Rain : " + dataMeteo.forecast.rr10 + " mm";
         boolRainAccumulation = false;
     }else{
-        ACCUMULATION_RAIN.style.display ="none";
-        boolRainAccumulation = true
+        RAIN.textContent =
+        "Precipitation : " + dataMeteo.forecast.probarain + "%";
+        boolRainAccumulation = true;
     }
 })
 
 let boolMediumWind = true;
 CHECKBOX_MEDIUM_WIND.addEventListener("input", ()=>{
     if(boolMediumWind){
-        MEDIUM_WIND.style.display ="";
-        MEDIUM_WIND.textContent =
-        "Medium wind : " + dataMeteo.forecast.wind10m + " km/h";
+        WIND.style.display ="";
+        WIND.textContent =
+        "wind : " + dataMeteo.forecast.wind10m + " km/h";
     boolMediumWind = false;
     }else{
-        MEDIUM_WIND.style.display ="none";
+        WIND.style.display ="none";
         boolMediumWind = true;
     }
 })
@@ -208,12 +202,12 @@ CHECKBOX_MEDIUM_WIND.addEventListener("input", ()=>{
 let boolWindDirection = true;
 CHECKBOX_WIND_DIRECTION.addEventListener("input", ()=>{
     if(boolWindDirection){
-        WIND_DIRECTION.style.display = "";
-        WIND_DIRECTION.textContent = 
-        "Wind direction : " + dataMeteo.forecast.dirwind10m + " °";
+        WIND.style.display = "";
+        WIND.textContent = 
+        "Wind : " + dataMeteo.forecast.dirwind10m + " °";
         boolWindDirection = false;
     }else{
-        WIND_DIRECTION.style.display = "none";
+        WIND.style.display = "none";
         boolWindDirection = true;
     }
 })
@@ -246,9 +240,7 @@ const handleUserInputEnability = (isEnabled) => {
         FORM_OPTION.style.display = "none";
         LATITUDE.style.display= "none";
         LONGITUDE.style.display= "none";
-        ACCUMULATION_RAIN.style.display= "none";
-        MEDIUM_WIND.style.display= "none";
-        WIND_DIRECTION.style.display= "none";
+        WIND.style.display= "none";
     }
 };
 /**
