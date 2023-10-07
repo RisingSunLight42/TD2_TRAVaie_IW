@@ -159,34 +159,46 @@ function displayMeteoInfo(data) {
     WEATHER_ICON.src = WEATHER_CODES[data.forecast.weather][1];
 }
 
-CHECKBOX_LATITUDE.addEventListener("input", () => {
+/**
+ * Function triggered when the latitude checkbox is ticked
+ */
+const latitudeTicked = () => {
     if (CHECKBOX_LATITUDE.checked) {
         LATITUDE.style.display = "";
         LATITUDE.textContent = "Latitude : " + dataMeteo.forecast.latitude;
     } else {
         LATITUDE.style.display = "none";
     }
-});
+};
 
-CHECKBOX_LONGITUTE.addEventListener("input", () => {
+/**
+ * Function triggered when the longitude checkbox is ticked
+ */
+const longitudeTicked = () => {
     if (CHECKBOX_LONGITUTE.checked) {
         LONGITUDE.style.display = "";
         LONGITUDE.textContent = "Longitude : " + dataMeteo.forecast.longitude;
     } else {
         LONGITUDE.style.display = "none";
     }
-});
+};
 
-CHECKBOX_ACCUMULATION.addEventListener("input", () => {
+/**
+ * Function triggered when the accumulation checkbox is ticked
+ */
+const accumulationTicked = () => {
     if (CHECKBOX_ACCUMULATION.checked) {
         RAIN.textContent += ` (${dataMeteo.forecast.rr10 + " mm"})`;
     } else {
         RAIN.textContent =
             "Precipitation : " + dataMeteo.forecast.probarain + "%";
     }
-});
+};
 
-CHECKBOX_MEDIUM_WIND.addEventListener("input", () => {
+/**
+ * Function triggered when the medium wind checkbox is ticked
+ */
+const mediumWindTicked = () => {
     if (CHECKBOX_MEDIUM_WIND.checked) {
         WIND.style.display = "";
         WIND.textContent = "Wind : " + dataMeteo.forecast.wind10m + " km/h";
@@ -197,9 +209,12 @@ CHECKBOX_MEDIUM_WIND.addEventListener("input", () => {
     } else {
         WIND.style.display = "none";
     }
-});
+};
 
-CHECKBOX_WIND_DIRECTION.addEventListener("input", () => {
+/**
+ * Function triggered when the wind direction checkbox is ticked
+ */
+const windDirectionTicked = () => {
     if (CHECKBOX_WIND_DIRECTION.checked) {
         WIND.style.display = "";
         if (CHECKBOX_MEDIUM_WIND.checked)
@@ -211,7 +226,17 @@ CHECKBOX_WIND_DIRECTION.addEventListener("input", () => {
     } else {
         WIND.style.display = "none";
     }
-});
+};
+
+CHECKBOX_LATITUDE.addEventListener("input", latitudeTicked);
+
+CHECKBOX_LONGITUTE.addEventListener("input", longitudeTicked);
+
+CHECKBOX_ACCUMULATION.addEventListener("input", accumulationTicked);
+
+CHECKBOX_MEDIUM_WIND.addEventListener("input", mediumWindTicked);
+
+CHECKBOX_WIND_DIRECTION.addEventListener("input", windDirectionTicked);
 
 /**
  * Function to perform an animation on the display
@@ -311,6 +336,11 @@ FORM_BUTTON.addEventListener("click", () => {
     if (SELECT_COMMUNITY.value != "") {
         getMeteo(SELECT_COMMUNITY.value);
         FORM_OPTION.style.display = "";
+        latitudeTicked();
+        longitudeTicked();
+        accumulationTicked();
+        mediumWindTicked();
+        windDirectionTicked();
     }
 });
 
