@@ -4,12 +4,22 @@
 const CITY_NAME = document.getElementById("nameCity");
 const TEMPERATURE = document.getElementById("Temperature");
 const RAIN = document.getElementById("rain");
+const TEMPERATURE = document.getElementById("Temperature");
+const RAIN = document.getElementById("rain");
 const SUN_HOURS = document.getElementById("sunHours");
 const LATITUDE = document.getElementById("latitude");
 const LONGITUDE = document.getElementById("longitude");
 const WIND = document.getElementById("Wind");
 const DATE = document.getElementById("date");
+const WIND = document.getElementById("Wind");
+const DATE = document.getElementById("date");
 const FORM_BUTTON = document.getElementById("formButton");
+const FORM_OPTION = document.getElementById("option");
+const CHECKBOX_LATITUDE = document.getElementById("Latitude");
+const CHECKBOX_LONGITUTE = document.getElementById("Longitude");
+const CHECKBOX_ACCUMULATION = document.getElementById("Accumulation");
+const CHECKBOX_MEDIUM_WIND = document.getElementById("Medium-wind");
+const CHECKBOX_WIND_DIRECTION = document.getElementById("Wind-direction");
 const FORM_OPTION = document.getElementById("option");
 const CHECKBOX_LATITUDE = document.getElementById("Latitude");
 const CHECKBOX_LONGITUTE = document.getElementById("Longitude");
@@ -21,6 +31,7 @@ const LABEL_SELECT_COMMUNITY = document.getElementById("labelSelectCommunity");
 const SELECT_COMMUNITY = document.getElementById("selectCommunity");
 const BACKGROUND = document.getElementById("background");
 const POP_UP_ERROR = document.getElementById("pop-up-error");
+let dataMeteo;
 let dataMeteo;
 const WEATHER_CODES = {
     0: "./image/sunny.webp",
@@ -145,14 +156,10 @@ function displayMeteoInfo(data) {
     RAIN.textContent = "Precipitation : " + data.forecast.probarain + "%";
     SUN_HOURS.textContent = "Sun : " + data.forecast.sun_hours + "h";
 
-    if(data.forecast.day == 0){
+    if (data.forecast.day == 0) {
         let date = new Date();
-        DATE.textContent = 
-            date.toLocaleDateString();
+        DATE.textContent = date.toLocaleDateString();
     }
-    
-    
-
 
     BACKGROUND.style.backgroundImage = `url(${
         WEATHER_CODES[data.forecast.weather]
