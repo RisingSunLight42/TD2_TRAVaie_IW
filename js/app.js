@@ -10,7 +10,8 @@ const LATITUDE = document.getElementById("latitude");
 const LONGITUDE = document.getElementById("longitude");
 const ACCUMULATION_RAIN = document.getElementById("accumulationRain");
 const MEDIUM_WIND = document.getElementById("mediumWind");
-const WIND_DIRECTION = document.getElementById ("windDirection");
+const WIND_DIRECTION = document.getElementById("windDirection");
+const FORM = document.getElementById("formWeather");
 const FORM_BUTTON = document.getElementById("formButton");
 const FORM_OPTION = document.getElementById("option");
 const CHECKBOX_LATITUDE = document.getElementById("Latitude");
@@ -26,13 +27,13 @@ const POP_UP_ERROR = document.getElementById("pop-up-error");
 let dataMeteo;
 const WEATHER_CODES = {
     0: "./image/sunny.webp",
-    1: "./image/cloudy.webp",
-    2: "./image/cloudy.webp",
-    3: "./image/cloudy.webp",
+    1: "./image/a_bit_cloudy.webp",
+    2: "./image/cloudy_sky.webp",
+    3: "./image/cloudy_sun.webp",
     4: "./image/cloudy.webp",
-    5: "./image/cloudy.webp",
-    6: "./image/cloudy.webp",
-    7: "./image/snowy.webp",
+    5: "./image/more_cloudy.webp",
+    6: "./image/more_cloudy.webp",
+    7: "./image/fog.webp",
     10: "./image/rainy.webp",
     11: "./image/rainy.webp",
     12: "./image/rainy.webp",
@@ -144,9 +145,8 @@ function displayMeteoInfo(data) {
     RAIN_PROBABILITY.textContent =
         "Chance of precipitation : " + data.forecast.probarain + "%";
     SUN_HOURS.textContent =
-        `Sun houe${data.forecast.sun_hours > 1 ? "s" : ""} : ` +
+        `Sun hour${data.forecast.sun_hours > 1 ? "s" : ""} : ` +
         data.forecast.sun_hours;
-
     BACKGROUND.style.backgroundImage = `url(${
         WEATHER_CODES[data.forecast.weather]
     })`;
@@ -232,7 +232,7 @@ const triggerAnimation = (element, animation) => {
 };
 /**
  * Function to display weather card's information or not
- * @param {boolean} isEnabled 
+ * @param {boolean} isEnabled
  */
 const handleUserInputEnability = (isEnabled) => {
     if (isEnabled) {
@@ -317,4 +317,7 @@ FORM_BUTTON.addEventListener("click", () => {
         FORM_OPTION.style.display = "";
     }
 });
+
+FORM.addEventListener("submit", (event) => event.preventDefault());
+
 handleUserInputEnability(false);
